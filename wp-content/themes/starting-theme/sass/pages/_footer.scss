@@ -1,0 +1,70 @@
+footer {
+  color: #fff;
+  padding: 20px;
+  background: #DA383E url(images/bwm-action-footer.png) bottom right no-repeat;
+  .footer__nav {
+    float: left;
+    width: calc(100% / 2);
+    @include md {
+      width: calc(100% / 4);
+    }
+    @include lg {
+      width: calc(100% / 8);
+    }
+    ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+      list-style: none;
+      a {
+        color: #fff;
+      }
+      a:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+    h6 {
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    h6::before {
+      content: url(images/before-spots.png);
+      display: inline-block;
+    }
+  }
+  a {
+    color: #fff;
+  }
+  a:hover, a:visited {
+    text-decoration: none;
+  }
+  .thanks {
+    font-size: 16px;
+    border-top: 5px solid rgba(255,255,255,.6);
+    padding-top: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    p {
+      opacity: .6;
+      margin: 0;
+    }
+    p:first-of-type {
+      font-weight: 700;
+    }
+  }
+  .navig {
+    img {
+      height: 20px;
+      margin-left: 5px;
+    }
+    a {
+      color: #fff;
+      transition: .5s;
+    }
+    a:hover {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}

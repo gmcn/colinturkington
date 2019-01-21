@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.517 22.844">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path id="Path_249" data-name="Path 249" class="cls-1" d="M34.893,41.444V29.67h3.12l.453-3.623H34.893V23.732c0-1.057.3-1.761,1.811-1.761h1.912v-3.22a23.387,23.387,0,0,0-2.767-.151c-2.767,0-4.629,1.66-4.629,4.78v2.667H28.1V29.67h3.12V41.444" transform="translate(-28.1 -18.6)"/>
+</svg>

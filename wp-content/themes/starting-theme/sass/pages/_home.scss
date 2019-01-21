@@ -1,0 +1,217 @@
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+#bxslider {
+  border-bottom: 15px solid #283C4F;
+  .bx-wrapper {
+    height: 100vh;
+  }
+}
+
+ul.bxslider {
+    padding: 0;
+    margin: 0;
+    .slide {
+      height: 100vh;
+      background-size: cover;
+      h1 {
+        color: #fff;
+        padding: 30px 20px;
+        display: inline-block;
+        font-size: 25px;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+      }
+      .container-fluid {
+        height: 100%;
+        text-align: center;
+      }
+      .vert-align {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        width: 100%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+    svg {
+      height: 200px;
+      transition: .5s;
+      cursor: pointer;
+    }
+    svg:hover {
+      .cls-1 {
+        stroke: #DA383E;
+      }
+      .cls-2 {
+        fill: #DA383E;
+      }
+    }
+  }
+
+  .countdown {
+    color: #fff;
+    h2 {
+      margin: 0;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 22px;
+    }
+  }
+
+  .profile, .shop, .countdown, .partners, .social, .gallery {
+    background-size: cover !important;
+    background: center center;
+    height: 350px;
+    h1 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #fff;
+      font-family: $font__headings;
+      font-weight: 700;
+    }
+    .vert-align {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      width: calc(100% - 30px);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  }
+
+  .profile, .shop {
+    border-bottom: 15px solid #da383e;
+  }
+
+  .countdown, .partners {
+    border-bottom: 15px solid #27a6ea;
+  }
+
+  .social, .gallery {
+    border-bottom: 15px solid #30223E;
+  }
+
+  .social img {
+    height: 150px;
+  }
+
+  .profile, .countdown, .social {
+    h1 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 15px;
+      color: #fff;
+      font-family: $font__headings;
+      a {
+        padding-left: 25px;
+        color: #fff;
+        transition: .5s;
+      }
+      a:hover {
+        text-decoration: none;
+        color: #da383e;
+      }
+      &:before {
+        content: url(images/before-home-spots.png);
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        display: block;
+        left: 0;
+      }
+    }
+  }
+
+  .shop, .partners, .gallery {
+    h1 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 20px 40px;
+      margin: 0;
+      font-size: 40px;
+      color: #fff;
+      font-family: $font__headings;
+      font-weight: 700;
+      &:before {
+        content: url(images/before-home-spots.png);
+        display: inline-block;
+        position: absolute;
+        margin-top: 8px;
+        margin-right: 10px !important;
+        left: 10px;
+      }
+    }
+  }
+
+  .shop {
+    h1 {
+      background: #DA383E;
+    }
+  }
+  .partners {
+    h1 {
+      background: #28A6EA;
+    }
+  }
+  .gallery {
+    margin-bottom: 0 !important;
+    h1 {
+      background: #30223E;
+    }
+  }
+
+  /**
+   *	This element is created inside your target element
+   *	It is used so that your own element will not need to be altered
+   **/
+  .time_circles {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      font-family: $font__headings;
+  }
+
+  /**
+   *	This is all the elements used to house all text used
+   * in time circles
+   **/
+  .time_circles > div {
+      position: absolute;
+      text-align: center;
+  }
+
+  /**
+   *	Titles (Days, Hours, etc)
+   **/
+  .time_circles > div > h4 {
+      margin: 0px;
+      padding: 0px;
+      text-align: center;
+      text-transform: uppercase;
+  }
+
+  /**
+   *	Time numbers, ie: 12
+   **/
+  .time_circles > div > span {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 300%;
+      margin-top: 0.4em;
+      font-weight: bold;
+  }
