@@ -1,0 +1,13 @@
+.breadcrumbs {
+  background: #283d4f;
+  color: #fff;
+  text-align: right;
+  a {
+    color: #fff;
+    transition: .5s;
+  }
+  a:hover {
+    color: red;
+    text-decoration: none;
+  }
+}

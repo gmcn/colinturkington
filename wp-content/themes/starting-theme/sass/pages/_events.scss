@@ -1,0 +1,150 @@
+.calendarhead {
+  background: #DA383E;
+  color: #fff;
+  padding-top: 60px;
+  h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300;
+  }
+  p {
+    font-weight: 700;
+    font-size: 22px;
+    @include md {
+      font-size: 35px;
+    }
+  }
+  .standings {
+    @include md {
+      border-left: 6px solid #fff;
+    }
+    p {
+      text-transform: uppercase;
+      font-size: 20px;
+      color: #283C4F;
+    }
+    table {
+      border-collapse:separate;
+      border-spacing: 5px 10px;
+      font-size: 20px;
+      @include md {
+        font-size: 25px;
+      }
+      font-weight: 700;
+    }
+    tr {
+      margin-bottom: 5px;
+    }
+    .count {
+      background: #283C4F;
+      width: 25px;
+    }
+    td.name, td.points {
+      border: 2px solid #fff;
+    }
+    .name {
+      text-transform: uppercase;
+    }
+    .points {
+      font-size: 15px;
+    }
+  }
+}
+
+.calendar {
+  padding: 25px 25px;
+  .event {
+    margin-bottom: 50px;
+    &__wrapper {
+      border: 6px solid #15283B;
+      padding: 15px;
+      transition: .5s;
+      .dots {
+        position: absolute;
+        top: 15px;
+        right: 10px;
+        background: url(images/events_dots_navy.png) no-repeat;
+        height: 30px;
+        width: 40px;
+      }
+      .round {
+        color: #DA383E;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .dates {
+        color: #DA383E;
+        font-size: 30px;
+        font-weight: 700;
+      }
+      .title {
+        border-top: 2px solid #15283B;
+        border-bottom: 2px solid #15283B;
+        color: #15283B;
+        padding-bottom: 15px;
+        word-wrap: break-word;
+        h2 {
+          font-size: 40px;
+          word-wrap: break-word;
+          @include md {
+            font-size: 35px;
+          }
+          @include lg {
+            font-size: 50px;
+          }
+          text-transform: uppercase;
+          font-weight: 700;
+          margin-top: 15px;
+        }
+        a {
+          color: #15283B;
+          font-size: 14px;
+          font-weight: 700;
+          display: inline-block;
+          text-transform: capitalize;
+        }
+      }
+      img.wp-post-image {
+        margin-top: 15px;
+      }
+    }
+
+    &__wrapper:hover {
+      border: 6px solid #DA383E;
+      padding: 15px;
+      background: #DA383E;
+      .dots {
+        background: url(images/events_dots_white.png) no-repeat;
+      }
+      .round {
+        color: #fff !important;
+      }
+      .dates {
+        color: #fff !important;
+      }
+      .title {
+        border-top: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        color: #fff;
+        h2 {
+          color: #fff;
+        }
+        a {
+          color: #fff;
+          transition: .5s;
+        }
+        a:hover {
+          color: #15283B;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .btcc_logo {
+    position: relative;
+    margin-top: -40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
