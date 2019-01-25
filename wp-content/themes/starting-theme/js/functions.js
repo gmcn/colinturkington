@@ -13,6 +13,10 @@
   }
   window.onload = startMatchHeight;
 
+  $(document).ready(function() {
+  		$(".fancybox").fancybox();
+  	});
+
   $(".modal").on('hidden.bs.modal', function (e) {
     $(".modal iframe").attr("src", $(".modal iframe").attr("src"));
 });
@@ -45,6 +49,8 @@ $("#DateCountdown").TimeCircles({
         }
     }
 });
+
+
 
 } ) (jQuery);
 

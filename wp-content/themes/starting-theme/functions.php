@@ -116,6 +116,8 @@ function starting_theme_scripts() {
 	wp_enqueue_style( 'starting-theme-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), '1.12.4', true );
 	wp_enqueue_script( 'starting-theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'fancybox', get_template_directory_uri() . '/js/jquery.fancybox.js', array(), '2.1.7', true );
+	wp_enqueue_script( 'fancybox-pack', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array(), '2.1.7', true );
 	wp_enqueue_script( 'TimeCircles-js', get_template_directory_uri() . '/js/TimeCircles.js', array(), '4.2.12', true );
 	wp_enqueue_script( 'bxslider-js', get_template_directory_uri() . '/js/jquery.bxslider.min.js', array(), '4.2.12', true );
 	wp_enqueue_script( 'functions-js', get_template_directory_uri() . '/js/functions.js', array(), '0.1', true );
@@ -188,7 +190,6 @@ function cf_search_join( $join ) {
     return $join;
 }
 add_filter('posts_join', 'cf_search_join' );
-
 /**
  * Modify the search query with posts_where
  * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
@@ -203,6 +204,18 @@ function cf_search_where( $where ) {
     return $where;
 }
 add_filter( 'posts_where', 'cf_search_where' );
+/**
+ * Prevent duplicates
+ * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
+ */
+function cf_search_distinct( $where ) {
+    global $wpdb;
+    if ( is_search() ) {
+        return "DISTINCT";
+    }
+    return $where;
+}
+add_filter( 'posts_distinct', 'cf_search_distinct' );
 
 /**
  * Code to add the custom login css file to the theme
@@ -339,6 +352,12 @@ function yoasttobottom() {
 	return 'low';
 }
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
+
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
 
 //* Enqueue script to activate WOW.js
 add_action('wp_enqueue_scripts', 'sk_wow_init_in_footer');

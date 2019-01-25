@@ -1,13 +1,20 @@
+.container-fluid {
+  @include md {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+  }
+}
+
 .breadcrumbs {
   background: #283d4f;
-  color: #fff;
+  color: #000000;
   text-align: right;
   a {
-    color: #fff;
+    color:  #000000;
     transition: .5s;
   }
   a:hover {
-    color: red;
+    color: #d83942;
     text-decoration: none;
   }
 }

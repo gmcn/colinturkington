@@ -26,10 +26,13 @@ ul.nav li.menu-item-has-children:hover > ul.dropdown-menu {
 
 
 header {
+  @include md {
+    margin: 0 15px;
+  }
   background: #283C4F;
   padding-top: 30px;
   padding-bottom: 30px;
-  width: 100%;
+  width: calc(100% - 30px);
   .branding {
     position: relative;
     z-index: 999;
@@ -218,6 +221,9 @@ span.open {
 .overlay .closebtn {
     position: absolute;
     top: 22px;
+    @include md {
+      right: 48px;
+    }
     right: 12px;
     font-size: 60px;
     line-height: 40px;
