@@ -354,8 +354,8 @@ function yoasttobottom() {
 add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
 
 function cc_mime_types($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
+ $mimes['svg'] = 'image/svg+xml';
+ return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
 
