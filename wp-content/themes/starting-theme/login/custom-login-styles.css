@@ -3,10 +3,10 @@
 }
 
 .login h1 a {
-	background-image: url('../images/logo.svg') !important;
+	background-image: url('../images/colin-turkington-logo.svg') !important;
     width: auto;
     background-size: contain;
-    height: 80px;
+    height: 100px;
 }
 
 .login #backtoblog a, .login #nav a {
@@ -18,7 +18,7 @@
 }
 
 body.login {
-  background: #fdfdfd url("../images/wp-login-bg.jpg");
+  background: #fdfdfd url("../images/colin-turkington-contact-bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;

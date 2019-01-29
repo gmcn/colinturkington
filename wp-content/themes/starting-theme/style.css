@@ -949,129 +949,117 @@ ul.bxslider {
       color: #27a6ea;
       text-decoration: none; }
 
-.profile, .shop, .countdown, .partners, .social, .gallery {
-  background-size: cover !important;
-  background: center center;
-  height: 350px; }
-  .profile h1, .shop h1, .countdown h1, .partners h1, .social h1, .gallery h1 {
+.home {
+  /**
+   *	This element is created inside your target element
+   *	It is used so that your own element will not need to be altered
+   **/
+  /**
+   *	This is all the elements used to house all text used
+   * in time circles
+   **/
+  /**
+   *	Titles (Days, Hours, etc)
+   **/
+  /**
+   *	Time numbers, ie: 12
+   **/ }
+  .home .profile, .home .shop, .home .countdown, .home .partners, .home .social, .home .gallery {
+    background-size: cover !important;
+    background: center center;
+    height: 350px; }
+    .home .profile h1, .home .shop h1, .home .countdown h1, .home .partners h1, .home .social h1, .home .gallery h1 {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 16px;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700; }
+    .home .profile .vert-align, .home .shop .vert-align, .home .countdown .vert-align, .home .partners .vert-align, .home .social .vert-align, .home .gallery .vert-align {
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      width: calc(100% - 30px);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      transform: translateY(-50%); }
+  .home .profile, .home .shop {
+    border-bottom: 15px solid #da383e; }
+  .home .countdown, .home .partners {
+    border-bottom: 15px solid #27a6ea; }
+  .home .social, .home .gallery {
+    border-bottom: 15px solid #30223E; }
+  .home .social img {
+    height: 150px; }
+  .home .profile h1, .home .countdown h1, .home .social h1 {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    font-size: 16px;
+    font-size: 15px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif; }
+    .home .profile h1 a, .home .countdown h1 a, .home .social h1 a {
+      padding-left: 25px;
+      color: #fff;
+      transition: .5s; }
+    .home .profile h1 a:hover, .home .countdown h1 a:hover, .home .social h1 a:hover {
+      text-decoration: none;
+      color: #da383e; }
+    .home .profile h1:before, .home .countdown h1:before, .home .social h1:before {
+      content: url(images/before-home-spots.png);
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      display: block;
+      left: 0; }
+  .home .shop h1, .home .partners h1, .home .gallery h1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px 40px;
+    margin: 0;
+    font-size: 40px;
     color: #fff;
     font-family: "Montserrat", sans-serif;
     font-weight: 700; }
-  .profile .vert-align, .shop .vert-align, .countdown .vert-align, .partners .vert-align, .social .vert-align, .gallery .vert-align {
+    .home .shop h1:before, .home .partners h1:before, .home .gallery h1:before {
+      content: url(images/before-home-spots.png);
+      display: inline-block;
+      position: absolute;
+      margin-top: 8px;
+      margin-right: 10px !important;
+      left: 10px; }
+  .home .shop h1 {
+    background: #DA383E; }
+  .home .partners h1 {
+    background: #28A6EA; }
+  .home .gallery {
+    margin-bottom: 0 !important; }
+    .home .gallery h1 {
+      background: #30223E; }
+  .home .time_circles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: "Montserrat", sans-serif; }
+  .home .time_circles > div {
     position: absolute;
+    text-align: center; }
+  .home .time_circles > div > h4 {
+    margin: 0px;
+    padding: 0px;
     text-align: center;
-    top: 50%;
-    width: calc(100% - 30px);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%); }
-
-.profile, .shop {
-  border-bottom: 15px solid #da383e; }
-
-.countdown, .partners {
-  border-bottom: 15px solid #27a6ea; }
-
-.social, .gallery {
-  border-bottom: 15px solid #30223E; }
-
-.social img {
-  height: 150px; }
-
-.profile h1, .countdown h1, .social h1 {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  font-size: 15px;
-  color: #fff;
-  font-family: "Montserrat", sans-serif; }
-  .profile h1 a, .countdown h1 a, .social h1 a {
-    padding-left: 25px;
-    color: #fff;
-    transition: .5s; }
-  .profile h1 a:hover, .countdown h1 a:hover, .social h1 a:hover {
-    text-decoration: none;
-    color: #da383e; }
-  .profile h1:before, .countdown h1:before, .social h1:before {
-    content: url(images/before-home-spots.png);
-    position: absolute;
-    width: 20px;
-    height: 20px;
+    text-transform: uppercase; }
+  .home .time_circles > div > span {
     display: block;
-    left: 0; }
-
-.shop h1, .partners h1, .gallery h1 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 20px 40px;
-  margin: 0;
-  font-size: 40px;
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700; }
-  .shop h1:before, .partners h1:before, .gallery h1:before {
-    content: url(images/before-home-spots.png);
-    display: inline-block;
-    position: absolute;
-    margin-top: 8px;
-    margin-right: 10px !important;
-    left: 10px; }
-
-.shop h1 {
-  background: #DA383E; }
-
-.partners h1 {
-  background: #28A6EA; }
-
-.gallery {
-  margin-bottom: 0 !important; }
-  .gallery h1 {
-    background: #30223E; }
-
-/**
- *	This element is created inside your target element
- *	It is used so that your own element will not need to be altered
- **/
-.time_circles {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  font-family: "Montserrat", sans-serif; }
-
-/**
- *	This is all the elements used to house all text used
- * in time circles
- **/
-.time_circles > div {
-  position: absolute;
-  text-align: center; }
-
-/**
- *	Titles (Days, Hours, etc)
- **/
-.time_circles > div > h4 {
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
-  text-transform: uppercase; }
-
-/**
- *	Time numbers, ie: 12
- **/
-.time_circles > div > span {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-size: 300%;
-  margin-top: 0.4em;
-  font-weight: bold; }
+    width: 100%;
+    text-align: center;
+    font-size: 300%;
+    margin-top: 0.4em;
+    font-weight: bold; }
 
 .calendarhead {
   background: #DA383E;
@@ -1473,6 +1461,75 @@ ul.bxslider {
   @media screen and (min-width: 992px) {
     .calendar-single .blog_section__post__wrapper {
       height: 350px; } }
+
+.partnershead {
+  background: #15283B;
+  color: #fff;
+  padding-top: 60px; }
+  .partnershead h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300; }
+  .partnershead p {
+    font-weight: 700;
+    font-size: 22px; }
+    @media screen and (min-width: 992px) {
+      .partnershead p {
+        font-size: 35px; } }
+  @media screen and (min-width: 992px) {
+    .partnershead .standings {
+      border-left: 6px solid #fff; } }
+  .partnershead .standings p {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #28A6EA; }
+  .partnershead .standings table {
+    border-collapse: separate;
+    border-spacing: 5px 10px;
+    font-size: 20px;
+    font-weight: 700; }
+    @media screen and (min-width: 992px) {
+      .partnershead .standings table {
+        font-size: 25px; } }
+  .partnershead .standings tr {
+    margin-bottom: 5px; }
+  .partnershead .standings .count {
+    background: #28A6EA;
+    width: 25px; }
+  .partnershead .standings td.name, .partnershead .standings td.points {
+    border: 2px solid #fff; }
+  .partnershead .standings .name {
+    text-transform: uppercase; }
+  .partnershead .standings .points {
+    font-size: 15px; }
+
+.partners {
+  background: #6F919B;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  text-align: center; }
+  .partners .partner {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 50px; }
+    .partners .partner__wrapper {
+      border-style: solid;
+      border-width: 26px 26px 27px 27px;
+      -moz-border-image: url(images/partner-wrapper.png) 26 26 27 27 repeat;
+      -webkit-border-image: url(images/partner-wrapper.png) 26 26 27 27 repeat;
+      -o-border-image: url(images/partner-wrapper.png) 26 26 27 27 repeat;
+      border-image: url(images/partner-wrapper.png) 26 26 27 27 fill repeat; }
+    .partners .partner a {
+      font-size: 16px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+      padding-right: 20px;
+      transition: .5s; }
+    .partners .partner a:last-of-type {
+      font-weight: 700;
+      padding-left: 20px; }
+    .partners .partner a:hover {
+      color: #fff;
+      text-decoration: none; }
 
 .contact__wrapper {
   background: url(images/colin-turkington-contact-bg.jpg) top center;

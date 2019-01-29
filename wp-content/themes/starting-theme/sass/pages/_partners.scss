@@ -1,0 +1,90 @@
+.partnershead {
+  background: #15283B;
+  color: #fff;
+  padding-top: 60px;
+  h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 300;
+  }
+  p {
+    font-weight: 700;
+    font-size: 22px;
+    @include md {
+      font-size: 35px;
+    }
+  }
+  .standings {
+    @include md {
+      border-left: 6px solid #fff;
+    }
+    p {
+      text-transform: uppercase;
+      font-size: 20px;
+      color: #28A6EA;
+    }
+    table {
+      border-collapse:separate;
+      border-spacing: 5px 10px;
+      font-size: 20px;
+      @include md {
+        font-size: 25px;
+      }
+      font-weight: 700;
+    }
+    tr {
+      margin-bottom: 5px;
+    }
+    .count {
+      background: #28A6EA;
+      width: 25px;
+    }
+    td.name, td.points {
+      border: 2px solid #fff;
+    }
+    .name {
+      text-transform: uppercase;
+    }
+    .points {
+      font-size: 15px;
+    }
+  }
+}
+
+.partners {
+  background: #6F919B;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  text-align: center;
+  .partner {
+    color: rgba(255, 255, 255, .5);
+    margin-bottom: 50px;
+    &__wrapper {
+      border-style: solid;
+      border-width: 26px 26px 27px 27px;
+      -moz-border-image: url(images/partner-wrapper.png) 26 26 27 27 repeat;
+      -webkit-border-image: url(images/partner-wrapper.png) 26 26 27 27 repeat;
+      -o-border-image: url(images/partner-wrapper.png) 26 26 27 27 repeat;
+      border-image: url(images/partner-wrapper.png) 26 26 27 27 fill repeat;
+    }
+    a {
+      font-size: 16px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .5);
+      padding-right: 20px;
+      transition: .5s;
+    }
+    a:last-of-type {
+      font-weight: 700;
+      padding-left: 20px;
+    }
+    a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.partner-single {
+  
+}
