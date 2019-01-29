@@ -19,7 +19,7 @@
 		<div class="row">
 			<div class="col-md-3">
 				<a href="/">
-					<img class="branding wow fadeInLeft" width="300px" src="<?php echo get_template_directory_uri(); ?>/images/colinturkington-logo.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
+					<img class="branding wow fadeInLeft" width="300px" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
 				</a>
 			</div>
 			<div class="col-md-9 navig">
