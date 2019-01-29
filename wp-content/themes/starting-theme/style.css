@@ -809,6 +809,9 @@ footer {
   color: #fff;
   padding: 20px;
   background: #DA383E url(images/bwm-action-footer.png) bottom right no-repeat; }
+  @media screen and (min-width: 992px) {
+    footer {
+      margin: 0 15px 0 15px; } }
   footer .footer__nav {
     float: left;
     width: calc(100% / 2); }
@@ -875,8 +878,14 @@ footer {
     color: #000000;
     transition: .5s; }
   .breadcrumbs a:hover {
-    color: #d83942;
+    color: #fff;
     text-decoration: none; }
+
+.title h1 {
+  color: #fff;
+  font-weight: 200;
+  margin-bottom: 100px;
+  font-size: 60px; }
 
 .no-gutter > [class*='col-'] {
   padding-right: 0;
@@ -1106,9 +1115,18 @@ ul.bxslider {
     font-size: 15px; }
 
 .calendar {
-  padding: 25px 25px 450px 25px;
+  padding: 25px 25px 150px 25px;
   background: url("images/calendar_btm.jpg") bottom center no-repeat;
   background-size: 100%; }
+  @media screen and (min-width: 768px) {
+    .calendar {
+      padding: 25px 25px 250px 25px; } }
+  @media screen and (min-width: 992px) {
+    .calendar {
+      padding: 25px 25px 350px 25px; } }
+  @media screen and (min-width: 1200px) {
+    .calendar {
+      padding: 25px 25px 450px 25px; } }
   .calendar .event {
     margin-bottom: 50px; }
     .calendar .event__wrapper__closed {
@@ -1223,6 +1241,17 @@ ul.bxslider {
           text-transform: capitalize; }
       .calendar .event__wrapper__upcoming img.wp-post-image {
         margin-top: 15px; }
+      .calendar .event__wrapper__upcoming .img__wrapper {
+        text-align: center;
+        padding: 20px; }
+        .calendar .event__wrapper__upcoming .img__wrapper img, .calendar .event__wrapper__upcoming .img__wrapper svg {
+          width: 100%;
+          padding: 20px;
+          max-height: 350px; }
+        .calendar .event__wrapper__upcoming .img__wrapper path {
+          stroke: #000; }
+        .calendar .event__wrapper__upcoming .img__wrapper text, .calendar .event__wrapper__upcoming .img__wrapper circle, .calendar .event__wrapper__upcoming .img__wrapper polygon {
+          display: none; }
     .calendar .event__wrapper__upcoming:hover {
       border: 6px solid #34A746;
       padding: 15px;
@@ -1245,6 +1274,19 @@ ul.bxslider {
         .calendar .event__wrapper__upcoming:hover .title a:hover {
           color: #15283B;
           text-decoration: none; }
+      .calendar .event__wrapper__upcoming:hover .img__wrapper {
+        text-align: center;
+        padding: 20px; }
+        .calendar .event__wrapper__upcoming:hover .img__wrapper img {
+          width: 100%;
+          padding: 20px;
+          max-height: 400px; }
+        .calendar .event__wrapper__upcoming:hover .img__wrapper path {
+          stroke: #fff;
+          fill: #fff; }
+        .calendar .event__wrapper__upcoming:hover .img__wrapper text, .calendar .event__wrapper__upcoming:hover .img__wrapper circle, .calendar .event__wrapper__upcoming:hover .img__wrapper polygon, .calendar .event__wrapper__upcoming:hover .img__wrapper rect {
+          display: block;
+          fill: #fff; }
   .calendar .btcc_logo {
     position: relative;
     margin-top: -40px;
@@ -1339,7 +1381,21 @@ ul.bxslider {
   padding-right: 7.5px;
   padding-left: 7.5px; }
   .calendar-single .circuit__wrapper {
-    background: #28A6EA; }
+    background: #28A6EA;
+    text-align: center; }
+    .calendar-single .circuit__wrapper img, .calendar-single .circuit__wrapper svg {
+      width: 90%;
+      margin: 25px 0 25px 0; }
+      @media screen and (min-width: 992px) {
+        .calendar-single .circuit__wrapper img, .calendar-single .circuit__wrapper svg {
+          width: 60%;
+          margin: 50px; } }
+    .calendar-single .circuit__wrapper path {
+      stroke: #fff;
+      fill: #fff; }
+    .calendar-single .circuit__wrapper text, .calendar-single .circuit__wrapper circle, .calendar-single .circuit__wrapper polygon, .calendar-single .circuit__wrapper rect {
+      display: block;
+      fill: #fff; }
   @media screen and (min-width: 992px) {
     .calendar-single .circuit {
       padding-right: 0;
@@ -1417,6 +1473,66 @@ ul.bxslider {
   @media screen and (min-width: 992px) {
     .calendar-single .blog_section__post__wrapper {
       height: 350px; } }
+
+.contact__wrapper {
+  background: url(images/colin-turkington-contact-bg.jpg) top center;
+  background-size: cover;
+  padding: 20px 0 100px;
+  color: #fff;
+  border-top: 10px solid #15283B; }
+  .contact__wrapper span.wpcf7-list-item {
+    margin: 0;
+    font-size: 12px; }
+  .contact__wrapper a {
+    color: #fff;
+    font-weight: 700;
+    padding-left: 15px;
+    padding-top: 15px;
+    display: inline-block;
+    transition: .5s; }
+  .contact__wrapper a:hover {
+    color: #d83942;
+    text-decoration: none; }
+  .contact__wrapper .recaptcha, .contact__wrapper .submit {
+    padding-top: 15px;
+    text-align: right; }
+  .contact__wrapper .ajax-loader {
+    display: none !important; }
+  .contact__wrapper .wpcf7-submit {
+    background: #DA383E;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+    border: none;
+    padding: 25px 30px;
+    text-transform: uppercase;
+    transition: .5s; }
+  .contact__wrapper .wpcf7-submit:hover {
+    background: #fff;
+    color: #DA383E; }
+  .contact__wrapper input, .contact__wrapper textarea {
+    padding-left: 10px;
+    font-weight: 700;
+    color: #283C4F; }
+  .contact__wrapper ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-weight: 700;
+    color: #283C4F; }
+  .contact__wrapper ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-weight: 700;
+    color: #283C4F; }
+  .contact__wrapper :-ms-input-placeholder {
+    /* IE 10+ */
+    font-weight: 700;
+    color: #283C4F; }
+  .contact__wrapper :-moz-placeholder {
+    /* Firefox 18- */
+    font-weight: 700;
+    color: #283C4F; }
+  .contact__wrapper__social img {
+    height: 50px; }
 
 /*--------------------------------------------------------------
 # Content

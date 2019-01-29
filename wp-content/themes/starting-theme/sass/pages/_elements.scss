@@ -14,7 +14,16 @@
     transition: .5s;
   }
   a:hover {
-    color: #d83942;
+    color: #fff;
     text-decoration: none;
+  }
+}
+
+.title {
+  h1 {
+    color: #fff;
+    font-weight: 200;
+    margin-bottom: 100px;
+    font-size: 60px;
   }
 }

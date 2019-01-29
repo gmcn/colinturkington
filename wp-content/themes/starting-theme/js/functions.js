@@ -10,6 +10,7 @@
   function startMatchHeight() {
     $('.matchheight').matchHeight();
     $('.featureheight').matchHeight();
+    $('.img__wrapper').matchHeight();
   }
   window.onload = startMatchHeight;
 
