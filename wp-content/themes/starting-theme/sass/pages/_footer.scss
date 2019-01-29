@@ -1,4 +1,7 @@
 footer {
+  @include md {
+    margin: 0 15px 0 15px;
+  }
   color: #fff;
   padding: 20px;
   background: #DA383E url(images/bwm-action-footer.png) bottom right no-repeat;
