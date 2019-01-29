@@ -1,67 +1,73 @@
-<div class="container-fluid calendar-single">
+<div class="container-fluid partner-single">
 	<div class="row">
 
 		<?php
 
-			$startDate = get_field('date_from', false, false);
-			$startDate = new DateTime($startDate);
-      $endDate = get_field('date_to', false, false);
-			$endDate = new DateTime($endDate);
-			$rounds = get_field('rounds');
-			$today = date('d-m-Y');
-
-			$circuitFeatureImage = get_field('circuit_feature_image');
+			$partnerAddress = get_field('partner_address');
+			$partnerTelephone = get_field('partner_telephone');
+			$partnerFax = get_field('partner_fax');
+			$partnerUrl = get_field('partner_url');
 
 			?>
 
-			<div class="col-md-3 image hidden-xs hidden-sm matchheight">
-				<div class="image__wrapper" style="background: url(<?php echo $circuitFeatureImage ?>) center center; background-size: cover;">
+			<div class="col-md-6 details wow fadeInLeft">
+				<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+				<div class="details__contact">
+
+
+					<div class="col-md-4">
+						<p>Address</p>
+						<?php echo $partnerAddress; ?>
+					</div>
+
+					<?php if($partnerTelephone): ?>
+						<div class="col-md-4">
+							<p>Telephone</p>
+								<a href="tel:<?php echo $partnerTelephone; ?>"><?php echo $partnerTelephone; ?></a>
+						</div>
+					<?php endif; ?>
+
+
+						<?php if($partnerFax): ?>
+						<div class="col-md-4">
+							<p>Fax</p>
+							<a href="tel:<?php echo $partnerFax; ?>"><?php echo $partnerFax; ?></a>
+						</div>
+						<?php endif; ?>
+
+
+
+						<div class="clear">
+
+						</div>
 
 				</div>
+				<!-- <div class="col-md-12 url"> -->
+					<?php if($partnerUrl): ?>
+						<a class="partner-url" href="<?php echo $partnerUrl; ?>" target="_blank">View website now</a>
+					<?php endif; ?>
+				<!-- </div> -->
 			</div>
 
-			<div class="col-md-9 circuit matchheight">
-				<div class="circuit__wrapper">
-					<?php echo file_get_contents( get_the_post_thumbnail_url()); ?>
-				</div>
+			<div class="col-md-6 content wow fadeInRight">
+				<?php the_content(); ?>
 			</div>
 
 	</div>
 
 	<div class="row">
-		<div class="col-md-3 back">
+		<div class="col-md-12 wow fadeInUp">
 			<div class="back__wrapper matchheight">
-				<img src="<?php echo get_template_directory_uri(); ?>/images/back_img.svg" alt="Back to Calendar"><a href="/calendar/">Back to Calendar</a>
-			</div>
-		</div>
-		<div class="col-md-9 blog">
-			<div class="blog__wrapper matchheight">
-				<h3>From the blog...</h3>
+				<a href="/partner/"><img src="<?php echo get_template_directory_uri(); ?>/images/back_img.svg" alt="Back to Partners">Back to Partners</a>
 			</div>
 		</div>
 	</div>
 
-	<div class="row blog_section">
-
-		<?php
-
-		$args = array( 'post_type' => 'post', 'category_name' => get_the_title(), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC' );
-		$loop = new WP_Query( $args );
-		if ($loop->have_posts()) :
-		while ( $loop->have_posts() ) : $loop->the_post(); ?>
-
-			<div class="col-md-3 blog_section__post" >
-				<div class="blog_section__post__wrapper" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) #283C4F center center; background-size: cover;">
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				</div>
-
-			</div>
-		<?php endwhile; ?>
-	<?php endif; ?>
 
 
+</div>
 
-
+<div class="container-fluid partner-img">
+	<div class="partner-img">
 	</div>
-
 </div>

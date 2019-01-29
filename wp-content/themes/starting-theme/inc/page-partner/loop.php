@@ -15,7 +15,7 @@
 
 				</div>
 
-				<a href="<?php the_permalink(); ?>" target="_blank">More Info</a><?php if($partnerUrl) : ?>| <a href="<?php echo $partnerUrl ?>" target="_blank">Visit Site</a><?php endif; ?>
+				<a href="<?php the_permalink(); ?>">More Info</a><?php if($partnerUrl) : ?>| <a href="<?php echo $partnerUrl ?>" target="_blank">Visit Site</a><?php endif; ?>
 
 			</div>
 

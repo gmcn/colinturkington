@@ -326,7 +326,7 @@ function partner_post_type() {
 		'show_ui'               => true,
 		'show_in_menu'          => true,
 		'menu_position'         => 5,
-		'menu_icon'             => 'dashicons-clipboard',
+		'menu_icon'             => 'dashicons-groups',
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
