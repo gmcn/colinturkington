@@ -31,9 +31,13 @@
   					<a href="<?php the_permalink(); ?>">Click here for more</a>
   				</div>
 
-					<!-- <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'large'); ?>" alt="<?php echo the_title(); ?>"> -->
+					<div class="img__wrapper">
 
-  				<?php echo the_post_thumbnail( 'large' ); ?>
+						<?php echo file_get_contents( get_the_post_thumbnail_url() ); ?>
+
+					</div>
+
+
 				</div>
         <a href="http://www.btcc.net" target="_blank"><img class="btcc_logo" src="<?php echo get_template_directory_uri(); ?>/images/btcc_logo.png" alt="BTCC"></a>
 			</div>

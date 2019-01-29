@@ -52,7 +52,16 @@
 }
 
 .calendar {
-  padding: 25px 25px 450px 25px;
+  padding: 25px 25px 150px 25px;
+  @include sm {
+    padding: 25px 25px 250px 25px;
+  }
+  @include md {
+    padding: 25px 25px 350px 25px;
+  }
+  @include lg {
+    padding: 25px 25px 450px 25px;
+  }
   background: url('images/calendar_btm.jpg') bottom center no-repeat;
   background-size: 100%;
   .event {
@@ -194,6 +203,22 @@
       img.wp-post-image {
         margin-top: 15px;
       }
+      .img__wrapper {
+        text-align: center;
+        padding: 20px;
+        img, svg {
+          width: 100%;
+          padding: 20px;
+          max-height: 350px;
+        }
+        path {
+          stroke: #000;
+        }
+        text, circle, polygon {
+          display: none;
+        }
+      }
+
     }
 
 
@@ -224,6 +249,23 @@
         a:hover {
           color: #15283B;
           text-decoration: none;
+        }
+      }
+      .img__wrapper {
+        text-align: center;
+        padding: 20px;
+        img {
+          width: 100%;
+          padding: 20px;
+          max-height: 400px;
+        }
+        path {
+          stroke: #fff;
+          fill: #fff;
+        }
+        text, circle, polygon, rect {
+          display: block;
+          fill: #fff;
         }
       }
     }
@@ -338,6 +380,24 @@
   .circuit {
     &__wrapper {
       background: #28A6EA;
+      text-align: center;
+      img, svg {
+        @include md {
+          width: 60%;
+          margin: 50px;
+        }
+        width: 90%;
+        margin: 25px 0 25px 0;
+
+      }
+      path {
+        stroke: #fff;
+        fill: #fff;
+      }
+      text, circle, polygon, rect {
+        display: block;
+        fill: #fff;
+      }
     }
     margin-top: 15px;
     margin-bottom: 15px;

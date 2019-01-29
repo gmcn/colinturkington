@@ -21,8 +21,8 @@
 			</div>
 
 			<div class="col-md-9 circuit matchheight">
-				<div class="back__wrapper">
-					<?php echo the_post_thumbnail( 'large' ); ?>
+				<div class="circuit__wrapper">
+					<?php echo file_get_contents( get_the_post_thumbnail_url()); ?>
 				</div>
 			</div>
 
