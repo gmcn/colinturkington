@@ -1540,11 +1540,11 @@ ul.bxslider {
   color: #fff; }
   .partner-single .details .details__contact {
     border-style: solid;
-    border-width: 26px 26px 27px 27px;
-    -moz-border-image: url(images/contact-wrapper.png) 26 26 27 27 repeat;
-    -webkit-border-image: url(images/contact-wrapper.png) 26 26 27 27 repeat;
-    -o-border-image: url(images/contact-wrapper.png) 26 26 27 27 repeat;
-    border-image: url(images/contact-wrapper.png) 26 26 27 27 fill repeat; }
+    border-width: 25px 15px 25px 15px;
+    -moz-border-image: url(images/contact-wrapper.png) 25 15 25 15 repeat;
+    -webkit-border-image: url(images/contact-wrapper.png) 25 15 25 15 repeat;
+    -o-border-image: url(images/contact-wrapper.png) 25 15 25 15 repeat;
+    border-image: url(images/contact-wrapper.png) 25 15 25 15 fill repeat; }
   .partner-single .details img {
     display: block;
     margin-bottom: 50px; }
@@ -1582,7 +1582,7 @@ ul.bxslider {
   .partner-single .back__wrapper {
     border-top: 1px dotted #28A6EA;
     text-align: right;
-    margin-top: 15px; }
+    margin-top: 30px; }
     .partner-single .back__wrapper a {
       background: #28A6EA;
       padding: 10px 20px;
@@ -1594,7 +1594,8 @@ ul.bxslider {
       .partner-single .back__wrapper a img {
         margin-right: 10px; }
     .partner-single .back__wrapper a:hover {
-      background: #DA383E; }
+      background: #DA383E;
+      text-decoration: none; }
 
 .partner-img {
   height: 400px;
