@@ -15,13 +15,13 @@
 				<div class="details__contact">
 
 
-					<div class="col-md-4">
+					<div class="col-sm-4">
 						<p>Address</p>
 						<?php echo $partnerAddress; ?>
 					</div>
 
 					<?php if($partnerTelephone): ?>
-						<div class="col-md-4">
+						<div class="col-sm-4">
 							<p>Telephone</p>
 								<a href="tel:<?php echo $partnerTelephone; ?>"><?php echo $partnerTelephone; ?></a>
 						</div>
@@ -29,7 +29,7 @@
 
 
 						<?php if($partnerFax): ?>
-						<div class="col-md-4">
+						<div class="col-sm-4">
 							<p>Fax</p>
 							<a href="tel:<?php echo $partnerFax; ?>"><?php echo $partnerFax; ?></a>
 						</div>
