@@ -11,7 +11,7 @@ get_header(); ?>
 
 <?php
 include(locate_template("inc/page-elements/breadcrumbs.php"));
-include(locate_template("inc/page-elements/head-partners.php"));
+include(locate_template("inc/page-elements/head-navy.php"));
 include(locate_template("inc/page-partner/loop.php"));
 ?>
 

@@ -9,11 +9,15 @@
 
 get_header(); ?>
 
-<?php
-include(locate_template("inc/page-elements/breadcrumbs.php"));
-include(locate_template("inc/page-elements/head-red.php"));
-include(locate_template("inc/page-calendar/loop.php"));
-?>
+		<?php
+		if ( have_posts() ) : ?>
+
+			<div class="col-md-4">
+				<?php echo the_title(); ?>
+				<img src="" alt="">
+			</div>
+
+		<?php endif; ?>
 
 <?php
 //get_sidebar();
