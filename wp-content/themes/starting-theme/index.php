@@ -14,43 +14,102 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php
+include(locate_template("inc/page-elements/breadcrumbs.php"));
+// include(locate_template("inc/page-elements/head-navy.php"));
+// include(locate_template("inc/page-news/loop.php"));
+?>
 
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+	<div class="container-fluid news-single">
+		<div class="row">
 
 			<?php
-			endif;
+			if ( have_posts() ) : /* Start the Loop */
+			while ( have_posts() ) : the_post(); ?>
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+				<div class="col-md-12 title">
+					<div class="date">
+						<?php the_date('d.m.y'); ?>
+					</div>
+					<h1><?php the_title(); ?></h1>
+				</div>
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				<div class="col-md-6 content wow fadeInLeft">
+					<?php the_content() ?>
+					<a class="back" href="/updates"><img src="<?php echo get_template_directory_uri(); ?>/images/back_img_nvy.svg" alt="Back to Calendar">Back to news</a>
+				</div>
+				<div class="col-md-6 thumbimg wow fadeInRight">
+					<?php if( have_rows('gallery') ): ?>
 
-			endwhile;
+		        <a class="fancybox" rel="group" href="<?php the_post_thumbnail_url(); ?>" title="<?php the_title(); ?>">
 
-			the_posts_navigation();
+		            <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
 
-		else :
+		        </a>
 
-			get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+		        <img class="more" src="<?php echo get_template_directory_uri() ?>/images/photo-camera.svg" alt="View <?php the_title() ?> Gallery">
+		      <?php else : ?>
+		        <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
+		      <?php endif; ?>
+					<div class="col-md-12 galleryinfo">
+						<div class="galleryinfo__wrapper">
+							<h3><?php echo the_title(); ?></h3>
+							<?php echo the_excerpt(); ?>
+						</div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+					</div>
+				</div>
+					<?php if( have_rows('gallery') ): ?>
+				  <!-- Hidden Gallery -->
+				  <div class="hidden">
+				    <?php while( have_rows('gallery') ): the_row();
+				      // vars
+				      $image = get_sub_field('image');
+				      $image_title = get_sub_field('image_title');
+							$image_url = $image['sizes']['thumbnail'];
+				      ?>
+
+				        <a class="fancybox" rel="group" href="<?php echo $image ?>" title="<?php if($image_title) : ?>
+				          <?php echo $image_title ?>
+				        <?php else : ?>
+				          <?php the_title(); ?>
+				        <?php endif; ?>">
+
+				            <img src="<?php echo $image_url; ?>" alt="<?php if($image_title) : ?>
+				              <?php echo $image_title ?>
+				            <?php else : ?>
+				              <?php the_title(); ?>
+				            <?php endif; ?>" />
+				        </a>
+
+				    <?php endwhile; wp_reset_postdata(); ?>
+				  </div>
+				<?php endif; ?>
+			<?php endwhile; ?>
+			<?php endif; ?>
+		</div>
+
+		<div class="row prev-next">
+			<div class="col-xs-6 previous">
+
+				<?php
+				$prev_post = get_previous_post();
+				if (!empty( $prev_post )): ?>
+				  <?php previous_post_link('%link', '< Previous Article', TRUE); ?>
+				<?php endif; ?>
+
+			</div>
+			<div class="col-xs-6 next">
+				<?php
+				$next_post = get_next_post();
+				if (!empty( $next_post )): ?>
+				  <?php next_post_link('%link', 'Next Article >', TRUE); ?>
+				<?php endif; ?>
+			</div>
+		</div>
+
+	</div>
 
 <?php
-get_sidebar();
 get_footer();
