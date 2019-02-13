@@ -48,10 +48,16 @@
 		$args = array( 'post_type' => 'post', 'category_name' => get_the_title(), 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC' );
 		$loop = new WP_Query( $args );
 		if ($loop->have_posts()) :
-		while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		while ( $loop->have_posts() ) : $loop->the_post();
+
+		$thumb_id = get_post_thumbnail_id();
+		$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', false);
+		$thumb_url = $thumb_url_array[0];
+
+		?>
 
 			<div class="col-md-3 blog_section__post" >
-				<div class="blog_section__post__wrapper" style="background: url(<?php echo get_the_post_thumbnail_url(); ?>) #283C4F center center; background-size: cover;">
+				<div class="blog_section__post__wrapper" style="background: url(<?php echo $thumb_url; ?>) #283C4F center center; background-size: cover;">
 					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				</div>
 
