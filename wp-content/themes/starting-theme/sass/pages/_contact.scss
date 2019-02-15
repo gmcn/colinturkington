@@ -29,6 +29,16 @@
   .ajax-loader {
     display: none !important;
   }
+
+  .consent {
+    padding-left: 15px;
+  }
+
+  input[type='checkbox'] {
+    margin-left: -15px;
+    background: transparent;
+  }
+
   .wpcf7-submit {
     background: #DA383E;
     color: #fff;
