@@ -1,6 +1,6 @@
 <div class="container-fluid contact__wrapper">
 
-  <?php include(locate_template("inc/page-elements/title.php")); ?>
+  <?php include(locate_template("inc/page-elements/title-contact.php")); ?>
 
   <div class="row">
     <div class="col-md-10">
