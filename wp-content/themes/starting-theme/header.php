@@ -32,10 +32,10 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<a href="/">
-						<img class="branding wow fadeInLeft" width="300px" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
+						<img class="branding" width="300px" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
 					</a>
 				</div>
-				<div class="col-xs-6 hamburger wow fadeInRight">
+				<div class="col-xs-6 hamburger">
 
         <!-- <span class="open" onclick="openSearch()">
           <img src="<?php echo get_template_directory_uri(); ?>/images/search-icon.svg" alt="Search Our Site" />
