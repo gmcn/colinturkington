@@ -352,12 +352,17 @@ function mpe_products_sort_order($query){
 	endif;
 };
 
+function set_posts_per_page_for_partner_cpt( $query ) {
+  if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'partner' ) ) {
+    $query->set( 'posts_per_page', '-1' );
+  }
+}
+add_action( 'pre_get_posts', 'set_posts_per_page_for_partner_cpt' );
+
 //adding sitewide ACF
 
 if( function_exists('acf_add_options_page') ) {
-
 	acf_add_options_page();
-
 }
 
 // Move Yoast to bottom
