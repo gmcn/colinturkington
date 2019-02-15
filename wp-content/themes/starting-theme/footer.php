@@ -75,8 +75,7 @@
 				</div>
 				<div class="row thanks no-gutter">
 					<div class="col-md-6">
-						<p>Thanks for taking the time to visit my website. </p>
-						<p>2017 marked a fantastic occasion for me returning to West Surrey Racing and representing TEAM BMW.  Taking the 100th BTCC win for BMW was a huge highlight and I look back at the season with immense pride at my performance on the track.</p>
+						<?php the_field('footer_blurb', 'option'); ?>
 					</div>
 				</div>
 				© COLIN TURKINGTON <?php echo date('Y') ?>  |  <a href="/data-policy">DATA POLICY</a>  |  <a href="https://www.facebook.com/colinturkington/" target="_blank">
