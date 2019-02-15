@@ -2,6 +2,7 @@
 
   $('.bxslider').bxSlider({
     controls: false,
+    pager: true,
   });
 
   /**
