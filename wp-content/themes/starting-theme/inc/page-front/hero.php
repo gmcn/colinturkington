@@ -17,11 +17,20 @@
 
 					// ACF Sub fields
       		$slide_image = get_sub_field('slide_image');
-      		$slide_title = get_sub_field('slide_title');
+      		$slide_title = get_sub_field('slide_tite');
+					$slide_copy = get_sub_field('slide_copy');
       		$slide_video = get_sub_field('slide_video');
 					?>
 
 				<li class="slide" style="background:url(<?php echo $slide_image; ?>) center; background-size: cover">
+
+					<?php if($slide_title && $slide_copy) : ?>
+						<div class="col-md-6 col-lg-4 col-md-offset-6 caption wow fadeInRightBig">
+							<h2><?php echo $slide_title; ?></h2>
+							<p><?php echo $slide_copy; ?></p>
+						</div>
+					<?php endif; ?>
+
 
           <?php if ($slide_video): ?>
 

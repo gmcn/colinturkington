@@ -22,13 +22,14 @@
       // The Loop
       $i = event1;
       while ( $calendar->have_posts() ) : $calendar->the_post();
-      $startDate = get_field('date_from');
+      $startDate = get_field('date_from', false, false);
       $endDate = get_field('date_to');
+      $startDate = new DateTime($startDate);
       ?>
 
       <div class="vert-align <?php echo $i ?>">
 
-        <div id="DateCountdown" data-date="<?php echo $startDate ?>" style="width: 100%;"></div>
+        <div id="DateCountdown" data-date="<?php echo $startDate->format('j M Y'); ?>" style="width: 100%;"></div>
         <h2><a href="<?php the_permalink(); ?>"> <?php the_title() ?> ROUNDS <?php echo the_field('rounds') ?></a></h2>
 
       </div>
