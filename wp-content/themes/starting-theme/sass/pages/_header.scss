@@ -30,11 +30,11 @@ header {
     margin: 0 15px;
   }
   background: #283C4F;
-  padding-top: 30px;
   padding-bottom: 30px;
   width: calc(100% - 30px);
   .branding {
     position: relative;
+    padding-top: 30px;
     z-index: 999;
     margin-top: -15px;
     // margin-left: 15px;
@@ -43,7 +43,6 @@ header {
     text-align: right;
     img {
       height: 25px;
-      margin-left: 8px;
       z-index: 1;
       position: relative;
     }
@@ -125,8 +124,14 @@ header {
 
 span.open {
   cursor: pointer;
-  position: relative;
+  position: absolute;
   z-index: 1;
+  right: 30px;
+  background: #9F000A;
+  top: 0;
+  padding-top: 30px;
+  padding: 40px 10px 10px 10px;
+  border-radius: 0 0 5px 5px;
 }
 
 .overlay {
@@ -220,11 +225,12 @@ span.open {
 
 .overlay .closebtn {
     position: absolute;
-    top: 22px;
-    @include md {
-      right: 48px;
-    }
-    right: 12px;
+    right: 60px;
+    background: #9F000A;
+    top: 0;
+    padding-top: 30px;
+    padding: 25px 10px 10px 10px;
+    border-radius: 0 0 5px 5px;
     font-size: 60px;
     line-height: 40px;
     z-index: 99999;
@@ -233,8 +239,8 @@ span.open {
 }
 
 .overlay .closebtn:hover {
-  transform: rotate(90deg);
-  color: #DA383E;
+  // transform: rotate(90deg);
+  color: #405C6F;
 }
 
 
