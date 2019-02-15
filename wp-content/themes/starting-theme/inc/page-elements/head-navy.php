@@ -8,7 +8,14 @@
 					<?php echo post_type_archive_title( '', false ); ?>
 				<?php endif; ?>
 			</h1>
-			<p>Please feel free to check out my sponsors and partners websites.</p>
+			<?php if ( is_home() ) : ?>
+				<p>
+					Keep up to speed with all things Colin Turkington
+				</p>
+			<?php endif; ?>
+			<?php if (is_archive('partner')) : ?>
+				<p>Please feel free to check out my sponsors and partners websites.</p>
+			<?php endif; ?>
 		</div><!-- /.col-md-8 -->
 		<div class="col-md-4 standings">
 

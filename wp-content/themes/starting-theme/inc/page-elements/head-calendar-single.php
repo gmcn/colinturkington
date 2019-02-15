@@ -15,20 +15,24 @@
 		<div class="col-md-6">
 			<?php echo the_content(); ?>
 		</div><!-- /.col-md-6 -->
+		<hr>
 	</div><!-- /.row -->
 	<div class="row circuit">
-		<div class="col-md-6">
-			<!-- <div class="rotate_wrapper"> -->
-				<div class="rotate hidden-xs hidden-sm">Race Details</div>
-			<!-- </div> -->
+		<div class="circuit__details">
+			<span class="rotate">Race Details</span>
+		</div>
+		<div style="float: left; margin-left: -110px;">
 			<div class="wrapper">
 				<span>Corners:</span>
 					<p><?php echo $circuitCorners ?></p>
 				</div>
+			</div>
+			<div style="float: left">
 				<div class="wrapper">
 					<span>Circuit length:</span>
 					<p><?php echo $circuitLength ?></p>  <span class="miles">miles</span>
 				</div>
+			</div>
 		</div><!-- /.col-md-6 -->
 
 
