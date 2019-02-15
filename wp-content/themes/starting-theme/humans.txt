@@ -1,19 +1,18 @@
 /* TEAM */
 
-  Project Manager: Sharon Williamson
-  Contact: Sharon [at] ourface.co.uk
-  Website: https://www.cornellstudios.com
-  From: Portadown, Northern Ireland
-
   Web Designer: Ed Jones
   Contact: ed [at] cornellstudios.com
   Website: https://www.cornellstudios.com
   From: Portadown, Northern Ireland
 
-
   Web Developer: Gary McNally
   Contact: gary [at] cornellstudios.com
   Twitter: @garymcnally
+  Website: https://www.cornellstudios.com
+  From: Ireland/Northern Ireland
+
+  Junior Web Developer: Christina Mallon
+  Contact: christina [at] cornellstudios.com
   Website: https://www.cornellstudios.com
   From: Ireland/Northern Ireland
 
