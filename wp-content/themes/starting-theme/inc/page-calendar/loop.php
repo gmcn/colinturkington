@@ -37,9 +37,16 @@
 
 					</div>
 
+					<div class="status">
+						<p class="over">Race Over</p>
+						<p class="tbc">TBC</p>
+					</div>
 
 				</div>
         <a href="http://www.btcc.net" target="_blank"><img class="btcc_logo" src="<?php echo get_template_directory_uri(); ?>/images/btcc_logo.png" alt="BTCC"></a>
+
+
+
 			</div>
 
 			<?php endwhile; ?>
