@@ -352,12 +352,21 @@ function mpe_products_sort_order($query){
 	endif;
 };
 
-function set_posts_per_page_for_partner_cpt( $query ) {
-  if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'partner' ) ) {
+function set_posts_per_page_for_cpt( $query ) {
+  if ( !is_admin() && $query->is_main_query() && is_post_type_archive( array('partner', 'calendar') ) ) {
     $query->set( 'posts_per_page', '-1' );
   }
 }
-add_action( 'pre_get_posts', 'set_posts_per_page_for_partner_cpt' );
+add_action( 'pre_get_posts', 'set_posts_per_page_for_cpt' );
+
+add_post_type_support( 'page', 'excerpt' );
+
+// function set_posts_per_page_for_calendar_cpt( $query ) {
+//   if ( !is_admin() && $query->is_main_query() && is_post_type_archive( 'calendar' ) ) {
+//     $query->set( 'posts_per_page', '-1' );
+//   }
+// }
+// add_action( 'pre_get_posts', 'set_posts_per_page_for_calendar_cpt' );
 
 //adding sitewide ACF
 
