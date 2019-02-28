@@ -7,7 +7,7 @@
 
 		?>
 
-			<div class="col-sm-6 col-md-4 col-md-3 partner wow fadeInUp">
+			<div class="col-sm-6 col-md-4 col-md-3 partner matchheight wow fadeInUp">
 				<div class="partner__wrapper">
 					<div class="img__wrapper">
 						<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">

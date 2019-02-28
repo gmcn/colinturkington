@@ -31,7 +31,9 @@ header {
   }
   background: #283C4F;
   padding-bottom: 30px;
-  width: calc(100% - 30px);
+  @include md {
+    width: calc(100% - 30px);
+  }
   .branding {
     position: relative;
     padding-top: 30px;
@@ -78,7 +80,7 @@ header {
 
 .menu-menu-1-container {
   text-align: right;
-  padding-top: 25%;
+  padding-top: 15%;
   width: 55%;
   border-right: 10px solid #DA383E;
   font-weight: 200;
@@ -103,7 +105,7 @@ header {
       text-align: right;
       padding-right: calc(5% + 25px);
       ul {
-        padding: 25% 0 0 0;
+        padding: 15% 0 0 0;
         li {
           text-align: left;
           padding: 0 0 0 50px;
@@ -127,11 +129,10 @@ span.open {
   position: absolute;
   z-index: 1;
   right: 30px;
-  background: #9F000A;
+  background: #DA383E;
   top: 0;
   padding-top: 30px;
   padding: 40px 10px 10px 10px;
-  border-radius: 0 0 5px 5px;
 }
 
 .overlay {
@@ -215,6 +216,7 @@ span.open {
     }
     img {
       height: 25px;
+      margin-right: 10px;
     }
 }
 
@@ -226,11 +228,10 @@ span.open {
 .overlay .closebtn {
     position: absolute;
     right: 60px;
-    background: #9F000A;
+    background: #DA383E;
     top: 0;
     padding-top: 30px;
     padding: 25px 10px 10px 10px;
-    border-radius: 0 0 5px 5px;
     font-size: 60px;
     line-height: 40px;
     z-index: 99999;

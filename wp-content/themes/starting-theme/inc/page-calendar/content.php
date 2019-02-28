@@ -56,11 +56,12 @@
 
 		?>
 
-			<div class="col-md-3 blog_section__post" >
-				<div class="blog_section__post__wrapper" style="background: url(<?php echo $thumb_url; ?>) #283C4F center center; background-size: cover;">
-					<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-				</div>
-
+			<div class="col-md-3 blog_section__post">
+				<a href="<?php the_permalink(); ?>">
+					<div class="blog_section__post__wrapper" style="background: url(<?php echo $thumb_url; ?>) #283C4F center center; background-size: cover;">
+						<h2><?php the_title(); ?></h2>
+					</div>
+				</a>
 			</div>
 		<?php endwhile; ?>
 	<?php endif; ?>

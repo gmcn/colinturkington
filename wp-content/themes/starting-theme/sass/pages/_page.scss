@@ -1,0 +1,134 @@
+.page-single {
+  padding: 50px 0 25px 0;
+  background: #15283B;
+  color: #fff;
+  margin-top: 15px;
+  .title {
+    border-bottom: 10px solid #fff;
+    @include md {
+      padding-left: 30px;
+    }
+    p {
+      font-size: 35px;
+      font-weight: 700;
+    }
+  }
+  h1 {
+    font-size: 60px;
+    font-weight: 200;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 25px;
+    text-transform: capitalize;
+  }
+
+  .content {
+    margin-top: 25px;
+    @include md {
+      padding-left: 30px;
+    }
+    a {
+      color: #fff;
+      font-weight: 700;
+      transition: .5s;
+    }
+    a:hover {
+      text-decoration: none;
+      color: #28A6EA;
+
+    }
+    a.back {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      margin-top: 50px;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 14px;
+      color: #15283B;
+      text-transform: uppercase;
+      padding: 15px 20px;
+      transition: .5s;
+      img {
+        margin-right: 15px;
+      }
+    }
+    a.back:hover {
+      background: #28A6EA;
+      text-decoration: none;
+    }
+  }
+  p:first-of-type {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 16px;
+  }
+  blockquote {
+    margin-top: 50px;
+  }
+  .thumbimg {
+    @include md {
+      padding-right: 0;
+    }
+    .more {
+      position: absolute;
+      top: 25px;
+      right: 40px;
+    }
+    .galleryinfo::before {
+      top: 0;
+      left: 0;
+      position: absolute;
+      content: "";
+      background-color: #15283B;
+      width: 15%;
+      height: 10px;
+    }
+    .galleryinfo {
+      background: #28A6EA;
+      padding: 30px 20px 20px 20px;
+      &__wrapper {
+
+      }
+      h3 {
+        font-size: 15px;
+        margin: 0;
+        font-weight: 700;
+        float: left;
+        line-height: 1.2em;
+      }
+      h3:before {
+        content: url(images/events_dots_white.png);
+        float: left;
+        height: 25px;
+      }
+      p {
+        clear: both;
+        font-size: 15px;
+        padding-left: 30px;
+        font-weight: 300;
+      }
+    }
+  }
+  .prev-next {
+    padding: 50px 15px 25px 15px;
+    font-family: 'Montserrat', sans-serif;
+    a {
+      color: #84B1DB;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+      transition: .5s;
+    }
+    a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+    .previous {
+      text-align: left;
+    }
+    .next {
+      text-align: right;
+    }
+  }
+}

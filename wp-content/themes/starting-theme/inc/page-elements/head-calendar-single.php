@@ -18,24 +18,23 @@
 		<hr>
 	</div><!-- /.row -->
 	<div class="row circuit">
-		<div class="circuit__details">
-			<span class="rotate">Race Details</span>
-		</div>
-		<div style="float: left; margin-left: -110px;">
-			<div class="wrapper">
-				<span>Corners:</span>
-					<p><?php echo $circuitCorners ?></p>
-				</div>
+		<div class="col-md-6">
+			<div class="circuit__details">
+				<span class="rotate">Race Details</span>
 			</div>
-			<div style="float: left">
+			<div style="float: left; margin-left: -110px;">
 				<div class="wrapper">
-					<span>Circuit length:</span>
-					<p><?php echo $circuitLength ?></p>  <span class="miles">miles</span>
+					<span>Corners:</span>
+						<p><?php echo $circuitCorners ?></p>
+					</div>
 				</div>
-			</div>
-		</div><!-- /.col-md-6 -->
-
-
+				<div style="float: left">
+					<div class="wrapper">
+						<span>Circuit length:</span>
+						<p><?php echo $circuitLength ?></p>  <span class="miles">miles</span>
+					</div>
+				</div>
+		</div>
 		<?php if( have_rows('circuit_gallery') ): ?>
 
 			<div class="col-md-6 circuit_gallery">
@@ -47,9 +46,6 @@
 			</div><!-- /.col-md-6 circuit_gallery -->
 
 		<?php endif; ?>
-
-
-
 	</div><!-- /.row -->
 </div><!-- /.container-fluid calendarhead-single -->
 

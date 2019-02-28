@@ -37,7 +37,7 @@ if($gallery){
         $attachment_id = $attachment['id'];
 
         ?>
-        <a class="fancybox" rel="group" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo $image['caption']; ?>">
+        <a class="fancybox" rel="group" href="<?php echo $image['sizes']['large']; ?>" title="<?php echo get_the_date('d.m.y', $attachment_id); //echo $image['caption']; ?>">
           <div class="col-sm-6 col-md-3 gallery_page__item count<?php echo $i ?> wow fadeIn" style="background: url(<?php echo $image['sizes']['large']; ?>) center center; background-size: cover;">
             <h2><?php echo get_the_date('d.m.y', $attachment_id); ?></h2>
           </div>
