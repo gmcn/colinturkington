@@ -5,7 +5,7 @@
       $args = array (
           'post_type' => 'calendar',
           'order' => 'ASC',
-          'post_per_page' => 1,
+          'posts_per_page' => 1,
           'meta_query' => array(
              array(
                 'key'		=> 'date_from',
@@ -30,14 +30,18 @@
       <div class="vert-align <?php echo $i ?>">
 
         <div id="DateCountdown" data-date="<?php echo $startDate->format('j M Y'); ?>" style="width: 100%;"></div>
-        <h2><a href="<?php the_permalink(); ?>"> <?php the_title() ?> ROUNDS <?php echo the_field('rounds') ?></a></h2>
+        <h2><a href="/calendar"> <?php the_title() ?> ROUNDS <?php echo the_field('rounds') ?> | <?php echo $startDate->format('j M Y'); ?></a></h2>
 
       </div>
-
-      <?php $i++; endwhile;  wp_reset_postdata(); ?>
 
       <h1>
         <a href="/calendar">Next Event</a>
       </h1>
+
+      <?php $i++; endwhile; ?>
+
+
+
+      <?php wp_reset_postdata(); ?>
 
     </div>

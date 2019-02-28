@@ -12,9 +12,14 @@ $gallery_img = get_field( "gallery_img" );
 
 <div class="container-fluid">
   <div class="row">
+    <a href="/profile">
+      <div class="col-sm-6 profile wow fadeInLeft">
+        
+        <div class="wrapper" style="background-image: url(<?php echo $profile_img; ?>)">
 
-    <div class="col-sm-6 profile wow fadeInLeft" style="background-image: url(<?php echo $profile_img; ?>)">
-      <h1>
-        <a href="/profile">Profile</a>
-      </h1>
-    </div>
+        </div>
+        <h1>
+          Profile
+        </h1>
+      </div>
+    </a>

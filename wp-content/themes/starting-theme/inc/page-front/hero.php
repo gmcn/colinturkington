@@ -20,9 +20,18 @@
       		$slide_title = get_sub_field('slide_tite');
 					$slide_copy = get_sub_field('slide_copy');
       		$slide_video = get_sub_field('slide_video');
+					$slide_mp4 = get_sub_field('slide_mp4_background');
 					?>
 
 				<li class="slide" style="background:url(<?php echo $slide_image; ?>) center; background-size: cover">
+
+					<?php if ($slide_mp4): ?>
+						<video autoplay="autoplay" muted="muted" loop="loop" id="myVideo">
+							<source id="mp4" src="<?php echo $slide_mp4 ?>" type="video/mp4">
+							<p>Your user agent does not support the HTML5 Video element.</p>
+						</video>
+					<?php endif; ?>
+
 
 					<?php if($slide_title && $slide_copy) : ?>
 						<div class="col-md-6 col-lg-4 col-md-offset-6 caption wow fadeInRightBig">
