@@ -33,10 +33,17 @@
 
 .title {
   background: #15283B;
-  border-bottom: 15px solid #fff;
+  border-bottom: 10px solid #fff;
   @include md {
     padding-left: 30px !important;
     padding-right: 30px !important;
+  }
+  .intro {
+    font-size: 16px;
+    font-weight: 300;
+    @include md {
+      margin-bottom: 180px;
+    }
   }
   h1 {
     color: #fff;
@@ -55,5 +62,58 @@
     @include md {
       font-size: 28px;
     }
+  }
+}
+
+.title-career {
+  background: #15283B;
+  @include md {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .intro {
+    font-size: 16px;
+    font-weight: 300;
+    @include md {
+      margin-bottom: 180px;
+    }
+  }
+  h1 {
+    color: #fff;
+    font-weight: 200;
+    margin-bottom: 25px;
+    font-size: 28px;
+    @include md {
+      font-size: 60px;
+    }
+  }
+  p {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    line-height: 1.5em;
+  }
+}
+
+.back__wrapper {
+  border-top: 1px dotted #28A6EA;
+  text-align: right;
+  margin-top: 30px;
+  a {
+    background: #28A6EA;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: .5s;
+    img {
+      margin-right: 10px;
+    }
+  }
+  a:hover {
+    background: #DA383E;
+    text-decoration: none;
   }
 }

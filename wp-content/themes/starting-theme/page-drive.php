@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages
+ * Template Name: Gallery Page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -11,13 +11,13 @@
  *
  * @package Starting_Theme
  */
-
 get_header(); ?>
 
 <?php
-include(locate_template("inc/page-elements/breadcrumbs.php"));
-include(locate_template("inc/page/content.php"));
-?>
+  include(locate_template("inc/page-elements/breadcrumbs.php"));
+  include(locate_template("inc/page-elements/title.php"));
+  include(locate_template("inc/page-profile/drive.php"));
+ ?>
 
 <?php
 //get_sidebar();

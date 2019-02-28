@@ -1,0 +1,372 @@
+.child-profile {
+  background: url(images/turkington-bmw.jpg) center center no-repeat;
+  padding-bottom: 300px;
+  font-family: 'Montserrat', sans-serif;
+  .child1, .child3 {
+    @include lg {
+      margin-top: -150px;
+    }
+  }
+  .child1 {
+    border-left: 0 !important;
+  }
+  .child4 {
+    border-right: 0 !important;
+  }
+  .child1, .child2, .child3, .child4 {
+    border: 5px solid #fff;
+    border-top: 10px solid #fff;
+    height: 500px !important;
+    .wrapper {
+      padding: 10px;
+    }
+    h2 {
+      font-size: 55px;
+      @include lg {
+        font-size: 70px;
+      }
+      font-weight: 700;
+    }
+    a {
+      color: #fff;
+      transition: .5s;
+    }
+    a:hover {
+      color: #d83942;
+      text-decoration: none;
+    }
+    span {
+      font-size: 100px;
+      font-weight: 300;
+      color: #fff;
+    }
+    span::before {
+      height: 20px;
+      width: 20px;
+      content: url('images/before-dots.svg');
+    }
+  }
+  .child2 {
+    background: url(images/biog_bg.jpg) #26a6e9 no-repeat top left !important;
+  }
+  .child3 {
+    .wrapper {
+      background: #fff;
+    }
+    h2 {
+      font-size: 55px;
+      @include lg {
+        font-size: 70px;
+      }
+      font-weight: 700;
+    }
+    a {
+      color: #283C4F;
+    }
+    span {
+      font-size: 100px;
+      font-weight: 300;
+      color: #283C4F;
+    }
+    span::before {
+      height: 20px;
+      width: 20px;
+      content: url('images/before-dots_navy.svg');
+    }
+  }
+  .child2, .child4 {
+    margin-top: -20px;
+    .wrapper {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}
+
+.coaching {
+  background: #15283B;
+  color: #fff;
+  padding: 25px 0;
+  .start {
+    text-align: center;
+  }
+  .content_rows {
+    .galleryinfo::before {
+      top: 0;
+      left: 0;
+      position: absolute;
+      content: "";
+      background-color: #15283B;
+      width: 15%;
+      height: 10px;
+    }
+    .galleryinfo {
+      padding: 0 5px 0 0;
+      text-align: left;
+      &__wrapper {
+        margin-right: 15px;
+        display: block;
+        padding: 30px 20px 20px 20px;
+        background: #28A6EA;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 0;
+        font-weight: 700;
+        float: left;
+      }
+      h3:before {
+        content: url(images/events_dots_white.png);
+        float: left;
+        height: 25px;
+      }
+      p {
+        clear: both;
+        font-size: 13px;
+        color: rgba(255, 255, 255, .5);
+        padding-left: 30px;
+        font-weight: 300;
+      }
+    }
+    .right {
+      @include md {
+        background: url(images/border-dash_right.png) bottom right;
+        background-repeat: repeat-y;
+        padding: 0;
+      }
+    }
+    .img__holder {
+      padding-bottom: 100px;
+      text-align: center;
+      @include md {
+        padding-left: 0;
+      }
+    }
+    .left {
+      @include md {
+        background: url(images/border-dash_left.png) bottom right;
+        background-repeat: repeat-y;
+        padding: 25px 25px 100px 25px;
+      }
+      img {
+        padding-right: 20px;
+      }
+    }
+    p {
+      font-size: 16px;
+      padding-right: 50px;
+      line-height: 1.5em;
+    }
+  }
+  .content_rows:last-of-type {
+    p {
+      font-size: 28px;
+      @include md {
+        font-size: 45px;
+      }
+      font-weight: 500;
+      line-height: 1.2em;
+    }
+    .img__holder {
+      padding-bottom: 100px;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .right {
+
+      background-repeat: repeat-y;
+    }
+  }
+  h2 {
+    font-size: 55px;
+    font-weight: 700;
+  }
+  p {
+    font-weight: 400;
+  }
+  a {
+    background: #DA383E;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: right;
+    border: none;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    transition: .5s;
+    display: inline-block;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+  a:hover {
+    background: #fff;
+    color: #DA383E;
+    text-decoration: none;
+  }
+}
+
+.inspiration {
+  background: #15283B;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  @include md {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .quote {
+    color: #fff;
+    margin-bottom: 25px;
+
+    h2 {
+      color: #28A6EA;
+      font-size: 28px;
+      @include md {
+        font-size: 48px;
+      }
+      @include lg {
+        font-size: 55px;
+      }
+      font-weight: 200;
+      padding: 0;
+      margin: 0 0 25px;
+    }
+    p:first-of-type {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 15px;
+    }
+    p.blue {
+      background: #28A6EA;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 16px;
+      @include md {
+        font-size: 22px;
+      }
+      padding: 10px;
+      display: inline-block;
+      margin-top: 30px;
+    }
+    span {
+      font-size: 90px;
+      height: 50px;
+      color: #28A6EA;
+      display: block;
+      font-weight: 700;
+      line-height: 1em;
+    }
+  }
+  .quote:nth-child(odd) {
+    @include lg {
+      padding-right: 75px;
+    }
+    @include md {
+      border-right: 1px solid rgba(255,255,255,.25);
+    }
+  }
+  .quote:nth-child(even) {
+    @include lg {
+      padding-left: 75px;
+    }
+  }
+}
+
+.career {
+  background: #15283B;
+  color: #fff;
+  padding-bottom: 50px;
+  @include md {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+  .row {
+    background: url(images/center_divide.svg) repeat-y center;
+  }
+  .row:first-of-type {
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include md {
+      margin-top: -75px;
+    }
+    @include lg {
+      margin-top: -150px;
+    }
+    .years {
+      border-top: none;
+    }
+  }
+  .row:last-of-type {
+    position: relative;
+    img {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    margin-bottom: 100px;
+    .years {
+      border-top: none;
+    }
+  }
+  .years {
+    border-top: 10px solid #fff;
+    &__wrapper {
+      position: relative;
+      padding: 20px;
+      .ruler {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 65px;
+        width: 10px;
+        background: #15283B;
+      }
+    }
+    h2 {
+      margin: 0;
+      font-size: 45px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    h2::before {
+      content: url(images/before-dots.svg);
+      float: left;
+      height: 25px;
+    }
+    p:first-of-type {
+      color: rgba(0,0,0,.5);
+      font-weight: 700;
+      font-size: 18px;
+    }
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      padding-left: 60px;
+    }
+  }
+
+  .years:nth-child(odd) {
+    padding-right: 4px;
+    padding-left: 0;
+  }
+  .years.col-md-offset-6 {
+    padding-left: 4px;
+    padding-right: 0;
+    .ruler {
+      position: absolute;
+      bottom: 0;
+      left: 0 !important;
+      height: 65px;
+      width: 10px;
+      background: #15283B;
+    }
+  }
+}

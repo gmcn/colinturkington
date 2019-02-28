@@ -16,7 +16,17 @@
   window.onload = startMatchHeight;
 
   $(document).ready(function() {
-  		$(".fancybox").fancybox();
+  		$(".fancybox").fancybox({
+
+        helpers : {
+        title: {
+            type: 'inside',
+            position: 'top',
+        }
+    }
+
+
+      });
   	});
 
   $(".modal").on('hidden.bs.modal', function (e) {
