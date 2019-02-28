@@ -49,7 +49,7 @@
 							?>
 					</div>
 					<div class="footer__nav">
-						<h6>2018 Calendar</h6>
+						<h6>Calendar</h6>
 						<?php wp_nav_menu( array(
 							'theme_location' => 'footer-5' ) );
 							?>
@@ -78,18 +78,21 @@
 						<?php the_field('footer_blurb', 'option'); ?>
 					</div>
 				</div>
-				© COLIN TURKINGTON <?php echo date('Y') ?>  |  <a href="/data-policy">DATA POLICY</a>  |  <a href="https://www.facebook.com/colinturkington/" target="_blank">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/facebook-icon.svg" alt="">
-				</a>
-				<a href="https://twitter.com/colinturkington" target="_blank">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/twitter-icon.svg" alt="">
-				</a>
-				<a href="https://www.instagram.com/colin.turkington/" target="_blank">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/instagram-icon.svg" alt="">
-				</a>
-				<a href="https://www.youtube.com/channel/UCt_fnP7ZYpJZvN8w_DSHUug" target="_blank">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/youtube-icon.svg" alt="">
-				</a>
+				<div class="row no-gutter">
+					© COLIN TURKINGTON <?php echo date('Y') ?>  |  <a href="/data-policy">DATA POLICY</a>  |  <a href="https://www.facebook.com/colinturkington/" target="_blank">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/facebook-icon.svg" alt="">
+					</a>
+					<a href="https://twitter.com/colinturkington" target="_blank">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/twitter-icon.svg" alt="">
+					</a>
+					<a href="https://www.instagram.com/colin.turkington/" target="_blank">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/instagram-icon.svg" alt="">
+					</a>
+					<a href="https://www.youtube.com/channel/UCt_fnP7ZYpJZvN8w_DSHUug" target="_blank">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/youtube-icon.svg" alt="">
+					</a>
+				</div>
+
 			</div>
 		</div>
 
