@@ -1,9 +1,12 @@
 <div class="container-fluid calendarhead">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-6">
 			<h1><?php echo post_type_archive_title( '', false ); ?></h1>
 			<p>Each race as it comes click into each event to find out more.</p>
 		</div><!-- /.col-md-8 -->
+		<div class="col-md-2">
+			<img style="margin-top: 50px;" class="btcc_logo" src="<?php echo get_template_directory_uri(); ?>/images/btcc_logo.png" alt="BTCC">
+		</div>
 		<div class="col-md-4 standings">
 
 			<p>Current BTCC Standings</p>
