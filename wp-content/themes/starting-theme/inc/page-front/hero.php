@@ -21,7 +21,8 @@
 					$slide_copy = get_sub_field('slide_copy');
       		$slide_video = get_sub_field('slide_video');
 					$slide_mp4 = get_sub_field('slide_mp4_background');
-					?>
+					
+				?>
 
 				<li class="slide" style="background:url(<?php echo $slide_image; ?>) center; background-size: cover">
 
