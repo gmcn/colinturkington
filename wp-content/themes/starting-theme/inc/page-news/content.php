@@ -14,7 +14,7 @@
 
       <div class="col-md-6 content wow fadeInLeft">
         <?php the_content() ?>
-        <a class="back" href="/updates"><img src="<?php echo get_template_directory_uri(); ?>/images/back_img_nvy.svg" alt="Back to Calendar">Back to news</a>
+        <a class="back" href="/news"><img src="<?php echo get_template_directory_uri(); ?>/images/back_img_nvy.svg" alt="Back to Calendar">Back to news</a>
       </div>
       <div class="col-md-6 thumbimg wow fadeInRight">
         <?php if( have_rows('gallery') ): ?>
