@@ -4,7 +4,7 @@
 }
 
 #bxslider {
-  border-bottom: 10px solid #283C4F;
+  border-bottom: 10px solid #fff;
   @include md {
     margin-left: 15px;
     margin-right: 15px;
@@ -131,7 +131,7 @@ ul.bxslider {
     }
   }
   .home {
-    .profile, .shop, .countdown, .fp_partners, .social, .gallery, .wrapper {
+    .profile, .shop, .countdown, .fp_partners, .social, .gallery, .wrapper, .fp_news, .fp_standings {
       background-size: cover !important;
       background: center center;
       height: 350px;
@@ -156,6 +156,36 @@ ul.bxslider {
         transform: translateY(-50%);
       }
     }
+
+    .fp_standings, .fp_news {
+      overflow: hidden;
+      padding-left: 0;
+      padding-right: 0;
+      @include md {
+      border-bottom: 10px solid #fff;
+      }
+      .wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: .5s;
+      }
+      .wrapper:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    .fp_news {
+      @include md {
+      border-left: 10px solid #fff;
+      }
+        h1 {
+          background: #fff;
+          color: #283C4F !important;
+        }
+    }
+
+
     .profile, .shop {
       border-bottom: 10px solid #da383e;
       overflow: hidden;
@@ -216,13 +246,13 @@ ul.bxslider {
       height: 150px;
     }
 
-    .profile {
+    .profile, .fp_standings {
       h1 {
         padding-left: 25px;
       }
     }
 
-    .profile, .countdown, .social {
+    .profile, .countdown, .social, .fp_standings {
       h1 {
         position: absolute;
         bottom: 10px;
@@ -269,6 +299,28 @@ ul.bxslider {
         font-weight: 700;
         &:before {
           content: url(images/before-home-spots.png);
+          display: inline-block;
+          position: absolute;
+          margin-top: 8px;
+          margin-right: 10px !important;
+          left: 10px;
+        }
+      }
+    }
+
+    .fp_news {
+      h1 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px 40px;
+        margin: 0;
+        font-size: 40px;
+        color: #fff;
+        font-family: $font__headings;
+        font-weight: 700;
+        &:before {
+          content: url(images/events_dots_navy.png);
           display: inline-block;
           position: absolute;
           margin-top: 8px;

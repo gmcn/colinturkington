@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-xs-6">
 					<a href="/">
-						<img class="branding" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
+						<img class="branding" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo_stapline-white.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
 					</a>
 				</div>
 				<div class="col-xs-6 hamburger">

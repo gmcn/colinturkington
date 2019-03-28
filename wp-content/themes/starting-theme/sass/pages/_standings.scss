@@ -1,0 +1,63 @@
+.standings-single {
+  padding: 25px 0 50px 0;
+  background: url(images/standings_bg.jpg) bottom right no-repeat;
+  .img_wrapper {
+    padding: 25px;
+    img {
+      max-height: 250px;
+      position: relative;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    p {
+      color: #283C4F;
+      font-size: 22px;
+      font-weight: 600;
+      text-transform: none;
+      margin-top: 15px;
+    }
+  }
+  .list {
+    border-left: 2px solid #28A6EA;
+    border-right: 2px solid #28A6EA;
+  }
+  @include md {
+    border-left: 6px solid #fff;
+  }
+  p {
+    text-transform: uppercase;
+    font-size: 20px;
+    color: #283C4F;
+  }
+  table {
+    border-collapse:separate;
+    border-spacing: 5px 10px;
+    font-size: 20px;
+    @include md {
+      font-size: 25px;
+    }
+    font-weight: 700;
+  }
+  tr {
+    margin-bottom: 5px;
+  }
+  .count {
+    background: #283C4F;
+    color: #fff;
+    width: 25px;
+  }
+  td.name, td.points {
+    border: 2px solid #fff;
+  }
+  .name {
+    text-transform: uppercase;
+    border: 2px solid #283C4F !important;
+  }
+  .points {
+    font-size: 15px;
+    color: #28A6EA;
+    border: 2px solid #28A6EA !important;
+  }
+}

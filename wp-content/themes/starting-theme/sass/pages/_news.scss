@@ -33,7 +33,10 @@
     h2 {
       background: #fff;
       color: #6F919B;
-      padding: 10px;
+      padding: 10px 10px 10px 45px;
+      @include md {
+        padding: 10px 10px 10px 25px;
+      }
       width: 90%;
       font-size: 16px;
       text-transform: uppercase;
@@ -53,8 +56,15 @@
     }
     h2::before {
       content: url('images/blog_dots_h2.png');
-      float: left;
-      height: 20px;
+      // float: left;
+      position: absolute;
+      left: 15px;
+      @include md {
+        left: 0;
+      }
+      @include xl {
+        // height: 20px;
+      }
     }
     &__post:first-of-type {
       @include md {

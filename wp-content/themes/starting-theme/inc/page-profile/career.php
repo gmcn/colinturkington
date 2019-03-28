@@ -26,7 +26,7 @@
 
   		<div class="col-md-6 <?php if ($i % 2): ?><?php else : ?>col-md-offset-6<?php endif; ?> years">
 
-        <div class="years__wrapper" style="background: url(<?php echo $yearImage ?>) <?php echo $yearColour ?> right;  background-repeat: no-repeat; background-size: contain;">
+        <div class="years__wrapper" style="background-image: url(<?php echo $yearImage ?>); background-color: <?php echo $yearColour ?>; background-position: right; background-repeat: no-repeat; background-size: contain;">
           <h2><?php echo $year; ?></h2>
           <p>
             <?php echo $yearHead ?>

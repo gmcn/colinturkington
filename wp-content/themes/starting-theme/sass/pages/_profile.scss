@@ -319,6 +319,9 @@
   .years {
     border-top: 10px solid #fff;
     &__wrapper {
+      @include max-lg {
+        background-image: none !important;
+      }
       position: relative;
       padding: 20px;
       .ruler {
@@ -347,6 +350,16 @@
       font-size: 18px;
     }
     p {
+      width: 50%;
+      @include md {
+        width: 75%;
+      }
+      @include lg {
+        width: 75%;
+      }
+      @include xl {
+        width: 100%;
+      }
       font-size: 20px;
       font-weight: 700;
       padding-left: 60px;

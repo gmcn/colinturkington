@@ -16,6 +16,8 @@ get_header(); ?>
 
 <?php
 include(locate_template("inc/page-front/hero.php"));
+include(locate_template("inc/page-front/standings.php"));
+include(locate_template("inc/page-front/news.php"));
 include(locate_template("inc/page-front/profile.php"));
 include(locate_template("inc/page-front/shop.php"));
 include(locate_template("inc/page-front/countdown.php"));
