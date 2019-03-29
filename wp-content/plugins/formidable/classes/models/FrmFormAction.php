@@ -85,6 +85,7 @@ class FrmFormAction {
             'force_event' => false,
             'priority'  => 20,
             'ajax_load' => true,
+			'plugin'    => $this->id_base,
             'tooltip'   => $name,
         );
 
@@ -97,7 +98,7 @@ class FrmFormAction {
 	 * @param string $id_base
 	 */
 	public function FrmFormAction( $id_base, $name, $action_options = array(), $control_options = array() ) {
-		FrmFormAction::__construct( $id_base, $name, $action_options, $control_options );
+		self::__construct( $id_base, $name, $action_options, $control_options );
 	}
 
 	/**
@@ -196,7 +197,7 @@ class FrmFormAction {
     * @return integer $post_id
     */
     public function maybe_create_action( $action, $forms ) {
-		if ( isset( $action['ID'] ) && is_numeric( $action['ID'] ) && $forms[ $action['menu_order'] ] == 'updated' ) {
+		if ( isset( $action['ID'] ) && is_numeric( $action['ID'] ) && isset( $forms[ $action['menu_order'] ] ) && $forms[ $action['menu_order'] ] == 'updated' ) {
             // Update action only
             $action['post_content'] = FrmAppHelper::maybe_json_decode( $action['post_content'] );
             $post_id = $this->save_settings( $action );
@@ -266,7 +267,6 @@ class FrmFormAction {
 	 * Deal with changed settings.
 	 *
 	 * Do NOT over-ride this function
-	 *
 	 */
  	public function update_callback( $form_id ) {
         $this->form_id = $form_id;
@@ -289,20 +289,24 @@ class FrmFormAction {
  		foreach ( $settings as $number => $new_instance ) {
  			$this->_set( $number );
 
+			$old_instance = isset( $all_instances[ $number ] ) ? $all_instances[ $number ] : array();
+
+			if ( ! isset( $new_instance['post_status'] ) ) {
+				$new_instance['post_status'] = 'draft';
+			}
+
+			// settings were never opened, so don't update
  			if ( ! isset( $new_instance['post_title'] ) ) {
- 			    // settings were never opened, so don't update
+				$this->maybe_update_status( $new_instance, $old_instance );
  			    $action_ids[] = $new_instance['ID'];
          		$this->updated = true;
          		continue;
  			}
 
-			$old_instance = isset( $all_instances[ $number ] ) ? $all_instances[ $number ] : array();
-
- 			$new_instance['post_type']  = FrmFormActionsController::$action_post_type;
+			$new_instance['post_type']  = FrmFormActionsController::$action_post_type;
 			$new_instance['post_name']  = $this->form_id . '_' . $this->id_base . '_' . $this->number;
-            $new_instance['menu_order']   = $this->form_id;
-            $new_instance['post_status']  = 'publish';
-            $new_instance['post_date'] = isset( $old_instance->post_date ) ? $old_instance->post_date : '';
+			$new_instance['menu_order'] = $this->form_id;
+			$new_instance['post_date']  = isset( $old_instance->post_date ) ? $old_instance->post_date : '';
 
  			$instance = $this->update( $new_instance, $old_instance );
 
@@ -336,6 +340,23 @@ class FrmFormAction {
  		return $action_ids;
  	}
 
+	/**
+	 * If the status of the action has changed, update it
+	 *
+	 * @since 3.04
+	 */
+	protected function maybe_update_status( $new_instance, $old_instance ) {
+		if ( $new_instance['post_status'] !== $old_instance->post_status ) {
+			self::clear_cache();
+			wp_update_post(
+				array(
+					'ID'          => $new_instance['ID'],
+					'post_status' => $new_instance['post_status'],
+				)
+			);
+		}
+	}
+
 	public function save_settings( $settings ) {
 		self::clear_cache();
 		return FrmDb::save_settings( $settings, 'frm_actions' );
@@ -354,20 +375,23 @@ class FrmFormAction {
 		return $this->get_all( $form_id, 1 );
 	}
 
-    public static function get_action_for_form( $form_id, $type = 'all', $limit = 99 ) {
+    public static function get_action_for_form( $form_id, $type = 'all', $atts = array() ) {
         $action_controls = FrmFormActionsController::get_form_actions( $type );
 		if ( empty( $action_controls ) ) {
             // don't continue if there are no available actions
             return array();
         }
 
-		$limit = apply_filters( 'frm_form_action_limit', $limit, compact( 'type', 'form_id' ) );
+		if ( 'all' != $type ) {
+			return $action_controls->get_all( $form_id, $atts );
+		}
 
-        if ( 'all' != $type ) {
-            return $action_controls->get_all( $form_id, $limit );
-        }
+		self::prepare_get_action( $atts );
+
+		$limit = apply_filters( 'frm_form_action_limit', $atts['limit'], compact( 'type', 'form_id' ) );
 
 		$args = self::action_args( $form_id, $limit );
+		$args['post_status'] = $atts['post_status'];
 		$actions = FrmDb::check_cache( serialize( $args ), 'frm_actions', $args, 'get_posts' );
 
         if ( ! $actions ) {
@@ -399,6 +423,25 @@ class FrmFormAction {
     }
 
 	/**
+	 * @since 3.04
+	 * @param array  $args
+	 * @param string $default_status
+	 */
+	protected static function prepare_get_action( &$args, $default_status = 'publish' ) {
+		if ( is_numeric( $args ) ) {
+			// for reverse compatibility. $limit was changed to $args
+			$args = array(
+				'limit' => $args,
+			);
+		}
+		$defaults = array(
+			'limit'       => 99,
+			'post_status' => $default_status,
+		);
+		$args = wp_parse_args( $args, $defaults );
+	}
+
+	/**
 	 * @param int $action_id
 	 */
 	public static function get_single_action_type( $action_id, $type ) {
@@ -418,7 +461,10 @@ class FrmFormAction {
 		return ! empty( $payment_actions );
 	}
 
-	public function get_all( $form_id = false, $limit = 99 ) {
+	public function get_all( $form_id = false, $atts = array() ) {
+		self::prepare_get_action( $atts, 'any' );
+		$limit = $atts['limit'];
+
 	    if ( $form_id ) {
 	        $this->form_id = $form_id;
 	    }
@@ -430,7 +476,7 @@ class FrmFormAction {
 
 		add_filter( 'posts_where', 'FrmFormActionsController::limit_by_type' );
 		$query = self::action_args( $form_id, $limit );
-        $query['post_status']      = 'any';
+		$query['post_status'] = $atts['post_status'];
         $query['suppress_filters'] = false;
 
 		$actions = FrmDb::check_cache( serialize( $query ) . '_type_' . $type, 'frm_actions', $query, 'get_posts' );

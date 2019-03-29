@@ -10,9 +10,9 @@ Author URI: https://plugin-planet.com/
 Contributors: specialk, aldolat, WpBlogHost, jameswilkes, juliobox, lernerconsult
 Donate link: https://monzillamedia.com/donate.html
 Requires at least: 4.1
-Tested up to: 4.9
-Stable tag: 20180821
-Version: 20180821
+Tested up to: 5.1
+Stable tag: 20190311
+Version: 20190311
 Requires PHP: 5.2
 Text Domain: block-bad-queries
 Domain Path: /languages
@@ -49,11 +49,11 @@ The fastest firewall plugin for WordPress.
 * Regularly updated and "future proof"
 * Customize blocked strings via [Whitelist/Blacklist plugins](https://perishablepress.com/bbq-whitelist-blacklist/)
 
-**GDPR**
+**Privacy**
 
-This plugin does not collect any user data. So it does _not_ do anything to make your site _less_ compliant with GDPR. I have done my best to ensure that this plugin is 100% GDPR compliant, but I'm not a lawyer so can't guarantee anything. To determine if your site is GDPR compliant, please consult an attorney.
+This plugin does not collect or store any user data. It does not set any cookies, and it does not connect to any third-party locations. Thus, this plugin does not affect user privacy in any way.
 
-> Works perfectly with or without Gutenberg
+> Works perfectly with or without Gutenberg Block Editor
 
 **Pro Version**
 
@@ -78,6 +78,11 @@ Once active, BBQ automically blocks bad queries to protect your site against mal
 * To block patterns otherwise allowed by BBQ, check out the [BBQ Blacklist plugin](https://perishablepress.com/bbq-whitelist-blacklist/)
 
 Note that the [Pro version of BBQ](https://plugin-planet.com/bbq-pro/) makes it possible to customize patterns (add, edit, remove) directly via the plugin settings, with a click. 
+
+
+**Like the plugin?**
+
+If you like BBQ, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/block-bad-queries/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
 
 
 
@@ -150,6 +155,13 @@ Nope! BBQ is available in the following flavors:
 So you can check out the Standalone PHP Script for sites that are not running WordPress.
 
 
+**Can I use BBQ and 6G/7G Firewall at the same time?**
+
+__Full question:__ "Except most of the rules overlapping, is it counter productive (site slowing down for example, potential conflicts, bugs) or is there any risks using 6G/7G Firewall + BBQ at the same time?" 
+
+__Answer:__ It's fine to run both BBQ and 6G/7G Firewall at the same time. Both firewalls are super fast, so they won’t slow things down. In other words the two firewalls play well together. The only downside is that some of the rules will be redundant, but there should be no negative impact on performance. The upside is that you get extra protection when using both, as there are variations in the firewall rules and patterns, etc.
+
+
 **Do you offer any other security plugins?**
 
 Yes, check out [Blackhole for Bad Bots](https://wordpress.org/plugins/blackhole-bad-bots/) to protect your site against bad bots. I also have a [video course on WordPress security](https://m0n.co/securewp), for more plugin recommendations and lots of tips and tricks.
@@ -175,6 +187,7 @@ And/or purchase one of my premium WordPress plugins:
 * [BBQ Pro](https://plugin-planet.com/bbq-pro/) - Super fast WordPress firewall
 * [Blackhole Pro](https://plugin-planet.com/blackhole-pro/) - Automatically block bad bots
 * [Banhammer Pro](https://plugin-planet.com/banhammer-pro/) - Monitor traffic and ban the bad guys
+* [GA Google Analytics Pro](https://plugin-planet.com/ga-google-analytics-pro/) - Connect your WordPress to Google Analytics
 * [USP Pro](https://plugin-planet.com/usp-pro/) - Unlimited front-end forms
 
 Links, tweets and likes also appreciated. Thank you! :)
@@ -182,6 +195,26 @@ Links, tweets and likes also appreciated. Thank you! :)
 
 
 == Changelog ==
+
+If you like BBQ, please take a moment to [give a 5-star rating](https://wordpress.org/support/plugin/block-bad-queries/reviews/?rate=5#new-post). It helps to keep development and support going strong. Thank you!
+
+
+**2019/03/11**
+
+* Improves function `bbq_action_links()`
+* Refines plugin settings screen UI
+* Generates new default translation template
+* Tests on WordPress 5.1 and 5.2 (alpha)
+
+**2019/02/20**
+
+* Tests on WordPress 5.1
+
+**2018/11/17**
+
+* Adds homepage link to Plugins screen
+* Updates default translation template
+* Tests on WordPress 5.0
 
 **2018/08/21**
 

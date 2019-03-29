@@ -86,13 +86,19 @@ function bbq_callback_version($args) {
 
 function bbq_action_links($links, $file) {
 	
-	if ($file == BBQ_FILE) {
+	if ($file == BBQ_FILE && current_user_can('manage_options')) {
 		
 		$settings_url   = admin_url('options-general.php?page=bbq_settings');
 		$settings_title = esc_attr__('Visit the BBQ plugin page', 'block-bad-queries');
 		$settings_text  = esc_html__('Settings', 'block-bad-queries');
 		
 		$settings_link  = '<a href="'. $settings_url .'" title="'. $settings_title .'">'. $settings_text .'</a>';
+		
+		array_unshift($links, $settings_link);
+		
+	}
+	
+	if ($file == BBQ_FILE) {
 		
 		$pro_url   = esc_url('https://plugin-planet.com/bbq-pro/');
 		$pro_title = esc_attr__('Get BBQ Pro for advanced protection', 'block-bad-queries');
@@ -101,7 +107,7 @@ function bbq_action_links($links, $file) {
 		
 		$pro_link  = '<a target="_blank" rel="noopener noreferrer" href="'. $pro_url .'" title="'. $pro_title .'" style="'. $pro_style .'">'. $pro_text .'</a>';
 		
-		array_unshift($links, $pro_link, $settings_link);
+		array_unshift($links, $pro_link);
 		
 	}
 	
@@ -113,6 +119,12 @@ add_filter('plugin_action_links', 'bbq_action_links', 10, 2);
 function bbq_meta_links($links, $file) {
 	
 	if ($file == BBQ_FILE) {
+		
+		$home_href  = 'https://perishablepress.com/block-bad-queries/';
+		$home_title = esc_attr__('Plugin Homepage', 'block-bad-queries');
+		$home_text  = esc_html__('Homepage', 'block-bad-queries');
+		
+		$links[] = '<a target="_blank" rel="noopener noreferrer" href="'. $home_href .'" title="'. $home_title .'">'. $home_text .'</a>';
 		
 		$rate_url   = esc_url('https://wordpress.org/support/plugin/block-bad-queries/reviews/?rate=5#new-post');
 		$rate_title = esc_attr__('Click here to rate and review this plugin at WordPress.org', 'block-bad-queries');

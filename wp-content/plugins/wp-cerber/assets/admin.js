@@ -1,7 +1,51 @@
 /**
- *	Copyright (C) 2015-18 CERBER TECH INC., https://wpcerber.com
+ *	Copyright (C) 2015-19 CERBER TECH INC., https://wpcerber.com
  */
 jQuery(document).ready(function ($) {
+
+    /* Select2 */
+    var crb_admin = $('#crb-admin');
+
+    var crb_se2 = crb_admin.find('.crb-select2-ajax');
+    if (crb_se2.length) {
+        crb_se2.select2({
+            allowClear: true,
+            placeholder: crb_se2.data( 'placeholder' ),
+            minimumInputLength: crb_se2.data('min_symbols') ? crb_se2.data('min_symbols') : '1',
+            ajax: {
+                url: ajaxurl,
+                dataType: 'json',
+                delay: 1000,
+                data: function (params) {
+                    return {
+                        user_search: params.term,
+                        action: 'cerber_ajax',
+                        ajax_nonce: crb_ajax_nonce,
+                    };
+                },
+                processResults: function( data ) {
+                    return {
+                        results: data
+                    };
+                },
+                // cache: true // doesn't work due to "no-cache" header, see also: https://github.com/select2/select2/issues/3862
+            }
+        });
+    }
+
+    crb_se2 = crb_admin.find('.crb-select2');
+    if (crb_se2.length) {
+        crb_se2.select2();
+    }
+
+    //crb_se2 = crb_admin.find('#crb-select2-tags');
+    crb_se2 = $('#crb-select2-tags');
+    if (crb_se2.length) {
+        crb_se2.select2({
+            tags: true,
+            allowClear: true
+        });
+    }
 
     /* WP Comments page */
     var comtable = 'table.wp-list-table.comments';
@@ -88,6 +132,7 @@ jQuery(document).ready(function ($) {
 
         $.get(ajaxurl, {
                 action: 'cerber_ajax',
+                ajax_nonce: crb_ajax_nonce,
                 dismiss_info: 1,
                 button_id: $(this).attr('id'),
             }
@@ -123,5 +168,86 @@ jQuery(document).ready(function ($) {
     crb_traffic.find('tr').mouseleave(function() {
         $(this).find('a.crb-traffic-more').hide();
     });
+
+    /* Enabling conditional input setting fields */
+
+    var setting_form = $('.crb-settings');
+    setting_form.find('input').change(function () {
+        var enabler_id = $(this).attr('id');
+        var enabler_val;
+        if ('checkbox' === $(this).attr('type')) {
+            if ($(this).is(':checked')) {
+                enabler_val = true;
+            }
+            else {
+                enabler_val = false;
+            }
+        }
+        else {
+            enabler_val = $(this).val();
+        }
+        setting_form.find('[data-enabler="' + enabler_id + '"]').each(function () {
+            var input_data = $(this).data();
+            var method;
+            if (typeof input_data['enabler_value'] !== "undefined") {
+                if (enabler_val === input_data['enabler_value']) {
+                    method = 'show';
+                }
+                else {
+                    method = 'hide';
+                }
+            }
+            else {
+                if (enabler_val) {
+                    method = 'show';
+                }
+                else {
+                    method = 'hide';
+                }
+            }
+
+            var element = $(this).closest('tr');
+            element[method]();
+        });
+    });
+
+    /* Nexus Master's code */
+
+    $('#crb-nexus-sites .crb-slave-site .column-updates a').click(function (event) {
+        var slave_id = $(this).closest('tr').data('slave-id');
+        var slave_name = $(this).closest('tr').data('slave-name');
+
+        $.magnificPopup.open({
+            items: {
+                src: ajaxurl + '?slave_id=' + slave_id + '&action=cerber_master_ajax&crb_ajax_do=nexus_view_updates&ajax_nonce=' + crb_ajax_nonce,
+            },
+            type: 'ajax',
+            callbacks: {
+                parseAjax: function (server_response) {
+                    var the_response = $.parseJSON(server_response.data);
+                    // Note: All html MUST BE inside of "crb-popup-wrap"
+                    server_response.data = '<div id="crb-popup-wrap"><div id="crb-outer"><div id="crb-inner"><h3>' + the_response['header'] + ' ' + slave_name + '</h3>' + the_response['html'] + '</div></div><p class="crb-popup-controls"><input type="button" value="OK" class="crb-mpopup-close button button-primary"></p></div>';
+                },
+                ajaxContentAdded: function() {
+                    var popup_width =  window.innerWidth * ((window.innerWidth < 800) ? 0.7 : 0.6);
+                    $('.crb-admin-mpopup .mfp-content').css('width', popup_width + 'px');
+                    var popup_height = window.innerHeight * ((window.innerHeight < 800) ? 0.7 : 0.6);
+                    $('.crb-admin-mpopup #crb-inner').css('max-height', popup_height + 'px');
+                }
+            },
+            overflowY: 'scroll', // main browser scrollbar
+            mainClass: 'crb-admin-mpopup',
+            closeOnContentClick: false,
+            //preloader: true,
+        });
+
+        event.preventDefault();
+    });
+
+    $(document.body).on('click', '.crb-mpopup-close', function (event) {
+        $.magnificPopup.close();
+        event.preventDefault();
+    });
+
 
 });

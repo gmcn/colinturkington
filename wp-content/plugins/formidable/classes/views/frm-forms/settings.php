@@ -57,7 +57,6 @@
         </ul>
         </div>
         <div class="advanced_settings tabs-panel <?php echo esc_attr( $a === 'advanced_settings' ? 'frm_block' : 'frm_hidden' ); ?>">
-			<?php FrmTipsHelper::pro_tip( 'get_form_settings_tip', 'p' ); ?>
 
 			<?php if ( ! $values['is_template'] ) { ?>
 				<h3 id="frm_shortcode" class="<?php echo esc_attr( $first_h3 ) ?>">
@@ -181,6 +180,7 @@
 					</td>
 				</tr>
             </table>
+			<?php FrmTipsHelper::pro_tip( 'get_form_settings_tip', 'p' ); ?>
 
             <!--Permissions Section-->
 			<?php do_action( 'frm_add_form_perm_options', $values ); ?>
@@ -264,12 +264,33 @@
                 <?php
 
                 //For each add-on, add an li, class, and javascript function. If active, add an additional class.
-                foreach ( $action_controls as $action_control ) {
+				$included    = false;
+				$use_logging = false;
+				$logging     = array( 'api', 'salesforce', 'constantcontact', 'activecampaign' );
+				foreach ( $action_controls as $action_control ) {
 					$classes = ( isset( $action_control->action_options['active'] ) && $action_control->action_options['active'] ) ? 'frm_active_action ' : 'frm_inactive_action ';
 					$classes .= $action_control->action_options['classes'];
+
+					if ( ! $use_logging && in_array( $action_control->id_base, $logging ) ) {
+						$use_logging = true;
+					}
+
+					if ( ! $included && strpos( $classes, 'frm_show_upgrade' ) ) {
+						$included = true;
+						FrmAppController::include_upgrade_overlay();
+					}
+					$upgrade_label = sprintf( esc_html__( '%s form actions', 'formidable' ), $action_control->action_options['tooltip'] );
+
+					$install_data = '';
+					if ( strpos( $classes, 'frm_inactive_action' ) !== false ) {
+						$upgrading = FrmAddonsController::install_link( $action_control->action_options['plugin'] );
+						if ( isset( $upgrading['url'] ) ) {
+							$install_data = json_encode( $upgrading );
+						}
+					}
                     ?>
 					<li>
-						<a href="javascript:void(0)" class="frm_<?php echo esc_attr( $action_control->id_base ) ?>_action frm_bstooltip <?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr( $action_control->action_options['tooltip'] ) ?>" data-limit="<?php echo esc_attr( isset( $action_control->action_options['limit'] ) ? $action_control->action_options['limit'] : '99' ); ?>" data-actiontype="<?php echo esc_attr( $action_control->id_base ) ?>"></a>
+						<a href="javascript:void(0)" class="frm_<?php echo esc_attr( $action_control->id_base ) ?>_action frm_bstooltip <?php echo esc_attr( $classes ); ?>" title="<?php echo esc_attr( $action_control->action_options['tooltip'] ) ?>" data-limit="<?php echo esc_attr( isset( $action_control->action_options['limit'] ) ? $action_control->action_options['limit'] : '99' ); ?>" data-actiontype="<?php echo esc_attr( $action_control->id_base ) ?>" data-upgrade="<?php echo esc_attr( $upgrade_label ); ?>" data-oneclick="<?php echo esc_attr( $install_data ); ?>" data-medium="settings-<?php echo esc_attr( $action_control->id_base ); ?>"></a>
 					</li>
 <?php
 					unset( $actions_icon, $classes );
@@ -285,6 +306,24 @@
                 </div>
             </div>
 			<?php FrmFormActionsController::list_actions( $form, $values ); ?>
+
+			<?php
+			// Show link to install logs.
+			if ( $use_logging && ! function_exists( 'frm_log_autoloader' ) ) {
+				$upgrading = FrmAddonsController::install_link( 'logs' );
+				if ( isset( $upgrading['url'] ) ) {
+					FrmAppController::include_upgrade_overlay();
+					?>
+					<p>
+						<a href="javascript:void(0)" class="frm_show_upgrade" data-upgrade="<?php esc_attr_e( 'Form action logs', 'formidable' ); ?>" data-medium="action-logs" data-oneclick="<?php echo esc_attr( json_encode( $upgrading ) ); ?>">
+							<i class="dashicons dashicons-info"></i>
+							<?php esc_html_e( 'Install logging to get more information on API requests.', 'formidable' ); ?>
+						</a>
+					</p>
+					<?php
+				}
+			}
+			?>
         </div>
 
         <div id="html_settings" class="tabs-panel <?php echo esc_attr( $a === 'html_settings' ) ? ' frm_block' : ' frm_hidden'; ?>">

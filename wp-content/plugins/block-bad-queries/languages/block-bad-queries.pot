@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-14 20:21+0000\n"
+"POT-Creation-Date: 2019-03-12 00:01+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -62,27 +62,35 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: bbq-settings.php:98
+#: bbq-settings.php:104
 msgid "Get BBQ Pro for advanced protection"
 msgstr ""
 
-#: bbq-settings.php:99
+#: bbq-settings.php:105
 msgid "Go&nbsp;Pro"
 msgstr ""
 
-#: bbq-settings.php:118
+#: bbq-settings.php:124
+msgid "Plugin Homepage"
+msgstr ""
+
+#: bbq-settings.php:125
+msgid "Homepage"
+msgstr ""
+
+#: bbq-settings.php:130
 msgid "Click here to rate and review this plugin at WordPress.org"
 msgstr ""
 
-#: bbq-settings.php:119
+#: bbq-settings.php:131
 msgid "Rate this plugin&nbsp;&raquo;"
 msgstr ""
 
-#: bbq-settings.php:132
+#: bbq-settings.php:144
 msgid "BBQ Firewall"
 msgstr ""
 
-#: bbq-settings.php:143
+#: bbq-settings.php:155
 msgid "Block Bad Queries"
 msgstr ""
 
