@@ -66,6 +66,21 @@ $("#DateCountdown").TimeCircles({
 
 } ) (jQuery);
 
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#15273b"
+    },
+    "button": {
+      "background": "#da373e"
+    }
+  },
+  "content": {
+    "href": "/data-policy"
+  }
+})});
+
 /* Open when someone clicks on the span element */
 function openNav() {
     document.getElementById("myNav").style.height = "100%";
