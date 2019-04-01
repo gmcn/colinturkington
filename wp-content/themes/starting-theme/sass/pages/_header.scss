@@ -21,7 +21,7 @@ ul.nav li.menu-item-has-children:hover > ul.dropdown-menu {
     position: absolute;
     top: 0;
     background: transparent;
-    width: 100%;
+    width: calc(100% - 30px);
   }
 }
 

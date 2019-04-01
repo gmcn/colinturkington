@@ -78,8 +78,8 @@
 						<?php the_field('footer_blurb', 'option'); ?>
 					</div>
 				</div>
-				<div class="row no-gutter">
-					© COLIN TURKINGTON <?php echo date('Y') ?>  |  <a href="/data-policy">DATA POLICY</a>  |  <a href="https://www.facebook.com/colinturkington/" target="_blank">
+				<div class="row no-gutter signature">
+					<p>© COLIN TURKINGTON <?php echo date('Y') ?></p>  |  <a href="/data-policy">DATA POLICY</a>  |  <a href="https://www.facebook.com/colinturkington/" target="_blank">
 						<img src="<?php echo get_template_directory_uri(); ?>/images/facebook-icon.svg" alt="">
 					</a>
 					<a href="https://twitter.com/colinturkington" target="_blank">

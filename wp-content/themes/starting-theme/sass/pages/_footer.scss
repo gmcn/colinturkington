@@ -2,6 +2,9 @@ footer {
   @include md {
     margin: 0 15px 0 15px;
   }
+  .branding {
+    margin-bottom: 50px;
+  }
   color: #fff;
   padding: 20px;
   background: #DA383E url(images/bwm-action-footer.png) bottom right no-repeat;
@@ -67,6 +70,14 @@ footer {
     a:hover {
       color: #000;
       text-decoration: none;
+    }
+  }
+  .signature {
+    p {
+      @include md {
+        display: inline-block;
+      }
+
     }
   }
 }
