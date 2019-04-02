@@ -3,7 +3,24 @@ footer {
     margin: 0 15px 0 15px;
   }
   .branding {
-    margin-bottom: 50px;
+    height: 100%;
+    img {
+      margin-bottom: 50px;
+    }
+    p.byline {
+      display: block;
+      color: #691A1D;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      @include md {
+        text-align: left;
+      }
+      a {
+        font-weight: 700;
+        color: #691A1D;
+      }
+    }
   }
   color: #fff;
   padding: 20px;

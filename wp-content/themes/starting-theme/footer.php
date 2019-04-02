@@ -17,12 +17,13 @@
 	<footer>
 
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-3 branding matchheight">
 				<a href="/">
-					<img class="branding wow fadeInLeft" width="300px" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo_stapline-white.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
+					<img class="wow fadeInLeft" width="300px" src="<?php echo get_template_directory_uri(); ?>/images/colin-turkington-logo_stapline-white.svg" alt="<?php bloginfo( 'name' ); ?> | <?php echo $description; ?>"  />
 				</a>
+				<p class="byline">Website by <a href="https://cornellstudios.com" target="_blank">Cornell</a></p>
 			</div>
-			<div class="col-md-9 navig">
+			<div class="col-md-9 navig matchheight">
 				<div class="row">
 					<div class="footer__nav">
 						<h6>Profile</h6>
