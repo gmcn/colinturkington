@@ -95,6 +95,8 @@
         color: #15283B;
         padding-bottom: 15px;
         word-wrap: break-word;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         h2 {
           font-size: 40px;
           word-wrap: break-word;
@@ -111,7 +113,6 @@
         span {
           color: #15283B;
           font-size: 14px;
-          font-weight: 700;
           display: inline-block;
           text-transform: capitalize;
         }
@@ -121,6 +122,21 @@
       }
       img.wp-post-image {
         margin-top: 10px;
+      }
+      .img__wrapper {
+        text-align: center;
+        padding: 20px;
+        img, svg {
+          width: 100%;
+          padding: 20px;
+          max-height: 350px;
+        }
+        path {
+          stroke: #000;
+        }
+        text, circle, polygon {
+          display: none;
+        }
       }
       .status {
         position: absolute;
@@ -173,6 +189,9 @@
         h2 {
           color: #fff;
         }
+        span {
+          color: #fff;
+        }
         a {
           color: #fff;
           transition: .5s;
@@ -180,6 +199,23 @@
         a:hover {
           color: #15283B;
           text-decoration: none;
+        }
+      }
+      .img__wrapper {
+        text-align: center;
+        padding: 20px;
+        img {
+          width: 100%;
+          padding: 20px;
+          max-height: 400px;
+        }
+        path {
+          stroke: #fff;
+          fill: #fff;
+        }
+        text, circle, polygon, rect {
+          display: block;
+          fill: #fff;
         }
       }
     }

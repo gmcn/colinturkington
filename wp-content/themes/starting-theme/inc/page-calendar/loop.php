@@ -4,27 +4,28 @@
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 			$startDate = get_field('date_from', false, false);
-			$startDate = new DateTime($startDate);
+			$startDated = new DateTime($startDate);
       $endDate = get_field('date_to', false, false);
-			$endDate = new DateTime($endDate);
+			$endDated = new DateTime($endDate);
 			$rounds = get_field('rounds');
 			$today = date('d-m-Y');
 
-			// $today_time = strtotime($today);
-			// $expire_time = strtotime($endDate);
+			$today_time = strtotime($today);
+			$expire_time = strtotime($endDate);
 			// $startDate_time = strtotime($startDate);
 
 			?>
 
 			<div class="col-sm-6 col-md-4 event wow fadeInUp">
 				<a href="<?php the_permalink(); ?>">
-					<div class="event__wrapper__<?php if ($expire_time > $today_time) : ?>closed <?php else : ?>upcoming <?php endif; ?>">
+					<?php //echo $endDated; ?>
+					<div class="event__wrapper__<?php if ($expire_time < $today_time) : ?>closed <?php else : ?>upcoming <?php endif; ?>">
 						<div class="dots"> </div>
 	  				<div class="round">
 	  					Rounds <?php echo $rounds; ?>
 	  				</div>
 	  				<div class="dates">
-	  					<?php echo $startDate->format('jS'); ?>-<?php echo $endDate->format('jS F Y'); ?>
+	  					<?php echo $startDated->format('jS'); ?>-<?php echo $endDated->format('jS F Y'); ?>
 	  				</div>
 	  				<div	class="title">
 	  					<h2 class="matchheight"><?php echo the_title(); ?></h2>
