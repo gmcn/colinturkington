@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -39,4 +39,7 @@ if ( defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	global $wpdb, $wp_filesystem;
 
 	// Delete any options or other data stored in the database here
+	delete_option( 'ai1wmue_backups' );
+	delete_option( 'ai1wmue_total' );
+	delete_option( 'ai1wmue_days' );
 }

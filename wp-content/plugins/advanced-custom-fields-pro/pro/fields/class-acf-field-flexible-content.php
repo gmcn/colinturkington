@@ -104,7 +104,7 @@ class acf_field_flexible_content extends acf_field {
 		
 		// parse
 		$layout = wp_parse_args($layout, array(
-			'key'			=> uniqid('layout_'),
+			'key'			=> uniqid(),
 			'name'			=> '',
 			'label'			=> '',
 			'display'		=> 'block',
@@ -209,32 +209,47 @@ class acf_field_flexible_content extends acf_field {
 	*  @param	$field (array)
 	*  @return	$post_id (int)
 	*/
-	function get_sub_field( $sub_field, $id, $field ) {
+
+	function get_sub_field( $sub_field, $selector, $field ) {
 		
-		// Get active layout.
+		// bail early if no layouts
+		if( empty($field['layouts']) ) return false;
+		
+		
+		// vars
 		$active = get_row_layout();
 		
-		// Loop over layouts.
-		if( $field['layouts'] ) {
-			foreach( $field['layouts'] as $layout ) {
+		
+		// loop
+		foreach( $field['layouts'] as $layout ) {
+			
+			// bail early if active layout does not match
+			if( $active && $active !== $layout['name'] ) continue;
+			
+			
+			// bail early if no sub fields
+			if( empty($layout['sub_fields']) ) continue;
+			
+			
+			// loop
+			foreach( $layout['sub_fields'] as $sub_field ) {
 				
-				// Restict to active layout if within a have_rows() loop.
-				if( $active && $active !== $layout['name'] ) {
-					continue;
+				// check name and key
+				if( $sub_field['name'] == $selector || $sub_field['key'] == $selector ) {
+					
+					// return
+					return $sub_field;
+					
 				}
 				
-				// Check sub fields.
-				if( $layout['sub_fields'] ) {
-					$sub_field = acf_search_fields( $id, $layout['sub_fields'] );
-					if( $sub_field ) {
-						break;
-					}
-				}
 			}
+			
 		}
-				
+		
+		
 		// return
-		return $sub_field;
+		return false;
+		
 	}
 	
 	
@@ -1624,46 +1639,71 @@ class acf_field_flexible_content extends acf_field {
 	
 	function prepare_field_for_import( $field ) {
 		
-		// Bail early if no layouts
-		if( empty($field['layouts']) ) {
-			return $field;
-		}
+		// bail early if no layouts
+		if( empty($field['layouts']) ) return $field;
 		
-		// Storage for extracted fields.
+		
+		// var
 		$extra = array();
 		
-		// Loop over layouts.
-		foreach( $field['layouts'] as &$layout ) {
+		
+		// loop
+		foreach( array_keys($field['layouts']) as $i ) {
 			
-			// Ensure layout is valid.
-			$layout = $this->get_valid_layout( $layout );
+			// extract layout
+			$layout = acf_extract_var( $field['layouts'], $i );
 			
-			// Extract sub fields.
-			$sub_fields = acf_extract_var( $layout, 'sub_fields' );
 			
-			// Modify and append sub fields to $extra.
-			if( $sub_fields ) {
-				foreach( $sub_fields as $i => $sub_field ) {
+			// get valid layout (fixes ACF4 export code bug undefined index 'key')
+			if( empty($layout['key']) ) $layout['key'] = uniqid();
+			
+			
+			// extract sub fields
+			$sub_fields = acf_extract_var( $layout, 'sub_fields');
+			
+			
+			// validate sub fields
+			if( !empty($sub_fields) ) {
+				
+				// loop over sub fields
+				foreach( array_keys($sub_fields) as $j ) {
 					
-					// Update atttibutes
+					// extract sub field
+					$sub_field = acf_extract_var( $sub_fields, $j );
+					
+					
+					// attributes
 					$sub_field['parent'] = $field['key'];
 					$sub_field['parent_layout'] = $layout['key'];
-					$sub_field['menu_order'] = $i;
 					
-					// Append to extra.
+					
+					// append to extra
 					$extra[] = $sub_field;
+					
 				}
+				
 			}
+			
+			
+			// append to layout
+			$field['layouts'][ $i ] = $layout;
+		
 		}
 		
-		// Merge extra sub fields.
-		if( $extra ) {
+		
+		// extra
+		if( !empty($extra) ) {
+			
 			array_unshift($extra, $field);
+			
 			return $extra;
+			
 		}
 		
-		// Return field.
+		
+		// return
 		return $field;
+		
 	}
 	
 	

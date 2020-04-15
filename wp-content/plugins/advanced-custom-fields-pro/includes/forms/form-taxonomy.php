@@ -246,36 +246,29 @@ class acf_form_taxonomy {
 	*/
 	
 	function admin_footer() {
-		
+	
 ?>
 <script type="text/javascript">
 (function($) {
 	
-	// Define vars.
+	// vars
 	var view = '<?php echo $this->view; ?>';
-	var $form = $('#' + view + 'tag');
-	var $submit = $('#' + view + 'tag input[type="submit"]:last');
 	
-	// Add missing spinner.
+	// add missing spinners
+	var $submit = $('input.button-primary');
 	if( !$submit.next('.spinner').length ) {
 		$submit.after('<span class="spinner"></span>');
 	}
 	
 <?php 
 	
-// View: Add.
+// add view
 if( $this->view == 'add' ): ?>
 	
 	// vars
+	var $form = $('#addtag');
 	var $fields = $('#acf-term-fields');
-	var html = '';
-	
-	// Store a copy of the $fields html used later to replace after AJAX request.
-	// Hook into 'prepare' action to allow ACF core helpers to first modify DOM.
-	// Fixes issue where hidden #acf-hidden-wp-editor is initialized again.
-	acf.addAction('prepare', function(){
-		html = $fields.html();
-	}, 6);
+	var html = $fields.html();
 		
 	// WP triggers click as primary action
 	$submit.on('click', function( e ){

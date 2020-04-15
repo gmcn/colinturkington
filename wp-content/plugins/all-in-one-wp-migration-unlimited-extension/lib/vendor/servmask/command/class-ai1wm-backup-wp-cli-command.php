@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2019 ServMask Inc.
+ * Copyright (C) 2014-2020 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,29 +31,35 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 	class Ai1wm_Backup_WP_CLI_Command extends WP_CLI_Command {
 		public function __construct() {
 			if ( ! defined( 'AI1WM_PLUGIN_NAME' ) ) {
-				WP_CLI::error_multi_line( array(
-					__( 'Extension requires All-in-One WP Migration plugin to be activated. ', AI1WM_PLUGIN_NAME ),
-					__( 'You can get a copy of it here: https://wordpress.org/plugins/all-in-one-wp-migration/', AI1WM_PLUGIN_NAME ),
-				) );
+				WP_CLI::error_multi_line(
+					array(
+						__( 'Extension requires All-in-One WP Migration plugin to be activated. ', AI1WM_PLUGIN_NAME ),
+						__( 'You can get a copy of it here: https://wordpress.org/plugins/all-in-one-wp-migration/', AI1WM_PLUGIN_NAME ),
+					)
+				);
 				exit;
 			}
 
 			if ( ! is_dir( AI1WM_STORAGE_PATH ) ) {
 				if ( ! mkdir( AI1WM_STORAGE_PATH ) ) {
-					WP_CLI::error_multi_line( array(
-						sprintf( __( 'All in One WP Migration is not able to create <strong>%s</strong> folder.', AI1WM_PLUGIN_NAME ), AI1WM_STORAGE_PATH ),
-						__( 'You will need to create this folder and grant it read/write/execute permissions (0777) for the All in One WP Migration plugin to function properly.', AI1WM_PLUGIN_NAME ),
-					) );
+					WP_CLI::error_multi_line(
+						array(
+							sprintf( __( 'All-in-One WP Migration is not able to create <strong>%s</strong> folder.', AI1WM_PLUGIN_NAME ), AI1WM_STORAGE_PATH ),
+							__( 'You will need to create this folder and grant it read/write/execute permissions (0777) for the All-in-One WP Migration plugin to function properly.', AI1WM_PLUGIN_NAME ),
+						)
+					);
 					exit;
 				}
 			}
 
 			if ( ! is_dir( AI1WM_BACKUPS_PATH ) ) {
 				if ( ! mkdir( AI1WM_BACKUPS_PATH ) ) {
-					WP_CLI::error_multi_line( array(
-						sprintf( __( 'All in One WP Migration is not able to create <strong>%s</strong> folder.', AI1WM_PLUGIN_NAME ), AI1WM_BACKUPS_PATH ),
-						__( 'You will need to create this folder and grant it read/write/execute permissions (0777) for the All in One WP Migration plugin to function properly.', AI1WM_PLUGIN_NAME ),
-					) );
+					WP_CLI::error_multi_line(
+						array(
+							sprintf( __( 'All-in-One WP Migration is not able to create <strong>%s</strong> folder.', AI1WM_PLUGIN_NAME ), AI1WM_BACKUPS_PATH ),
+							__( 'You will need to create this folder and grant it read/write/execute permissions (0777) for the All-in-One WP Migration plugin to function properly.', AI1WM_PLUGIN_NAME ),
+						)
+					);
 					exit;
 				}
 			}
@@ -114,6 +120,7 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 		 * $ wp ai1wm backup --replace "wp" "WordPress"
 		 * Backup in progress...
 		 * Backup complete.
+		 * Backup file: migration-wp-20170913-095743-931.wpress
 		 * Backup location: /repos/migration/wp/wp-content/ai1wm-backups/migration-wp-20170913-095743-931.wpress
 		 *
 		 * @subcommand backup
@@ -189,10 +196,12 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 
 						default:
 							if ( ! get_blog_details( $site_id ) ) {
-								WP_CLI::error_multi_line( array(
-									__( 'A site with this ID does not exist.', AI1WM_PLUGIN_NAME ),
-									__( 'To list the sites type `l`.', AI1WM_PLUGIN_NAME ),
-								) );
+								WP_CLI::error_multi_line(
+									array(
+										__( 'A site with this ID does not exist.', AI1WM_PLUGIN_NAME ),
+										__( 'To list the sites type `l`.', AI1WM_PLUGIN_NAME ),
+									)
+								);
 								break;
 							}
 
@@ -216,6 +225,7 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 			}
 
 			WP_CLI::success( __( 'Backup complete.', AI1WM_PLUGIN_NAME ) );
+			WP_CLI::log( sprintf( __( 'Backup file: %s', AI1WM_PLUGIN_NAME ), ai1wm_archive_name( $params ) ) );
 			WP_CLI::log( sprintf( __( 'Backup location: %s', AI1WM_PLUGIN_NAME ), ai1wm_backup_path( $params ) ) );
 		}
 
@@ -239,19 +249,23 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 		public function list_backups( array $args, array $assoc_args ) {
 			$backups = new cli\Table;
 
-			$backups->setHeaders( array(
-				'name' => __( 'Backup name', AI1WM_PLUGIN_NAME ),
-				'date' => __( 'Date created', AI1WM_PLUGIN_NAME ),
-				'size' => __( 'Size', AI1WM_PLUGIN_NAME ),
-			) );
+			$backups->setHeaders(
+				array(
+					'name' => __( 'Backup name', AI1WM_PLUGIN_NAME ),
+					'date' => __( 'Date created', AI1WM_PLUGIN_NAME ),
+					'size' => __( 'Size', AI1WM_PLUGIN_NAME ),
+				)
+			);
 
 			$model = new Ai1wm_Backups;
 			foreach ( $model->get_files() as $backup ) {
-				$backups->addRow( array(
-					'name' => $backup['filename'],
-					'date' => sprintf( __( '%s ago', AI1WM_PLUGIN_NAME ), human_time_diff( $backup['mtime'] ) ),
-					'size' => size_format( $backup['size'], 2 ),
-				) );
+				$backups->addRow(
+					array(
+						'name' => $backup['filename'],
+						'date' => sprintf( __( '%s ago', AI1WM_PLUGIN_NAME ), human_time_diff( $backup['mtime'] ) ),
+						'size' => ai1wm_size_format( $backup['size'], 2 ),
+					)
+				);
 			}
 
 			$backups->display();
@@ -283,18 +297,22 @@ if ( defined( 'WP_CLI' ) && ! class_exists( 'Ai1wm_Backup_WP_CLI_Command' ) ) {
 			);
 
 			if ( ! isset( $args[0] ) ) {
-				WP_CLI::error_multi_line( array(
-					__( 'A backup name must be provided in order to proceed with the restore process.', AI1WM_PLUGIN_NAME ),
-					__( 'Example: wp ai1wm restore migration-wp-20170913-095743-931.wpress', AI1WM_PLUGIN_NAME ),
-				) );
+				WP_CLI::error_multi_line(
+					array(
+						__( 'A backup name must be provided in order to proceed with the restore process.', AI1WM_PLUGIN_NAME ),
+						__( 'Example: wp ai1wm restore migration-wp-20170913-095743-931.wpress', AI1WM_PLUGIN_NAME ),
+					)
+				);
 				exit;
 			}
 
 			if ( ! is_file( ai1wm_backup_path( array( 'archive' => $args[0] ) ) ) ) {
-				WP_CLI::error_multi_line( array(
-					__( 'The backup file could not be located in wp-content/ai1wm-backups folder.', AI1WM_PLUGIN_NAME ),
-					__( 'To list available backups use: wp ai1wm list-backups', AI1WM_PLUGIN_NAME ),
-				) );
+				WP_CLI::error_multi_line(
+					array(
+						__( 'The backup file could not be located in wp-content/ai1wm-backups folder.', AI1WM_PLUGIN_NAME ),
+						__( 'To list available backups use: wp ai1wm list-backups', AI1WM_PLUGIN_NAME ),
+					)
+				);
 				exit;
 			}
 
