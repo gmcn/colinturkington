@@ -75,11 +75,28 @@ footer {
       font-weight: 700;
     }
   }
-  .navig {
+  .footer_title {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+  }
+  .footer_titles {
+    margin-bottom: 10px;
+    color: #fff;
     img {
-      height: 20px;
-      margin-left: 5px;
+      width: 100%;
     }
+    p {
+      opacity: 1;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 300 !important;
+      margin-bottom: 20px;
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+  .navig {
     a {
       color: #fff;
       transition: .5s;
@@ -90,6 +107,10 @@ footer {
     }
   }
   .signature {
+    img {
+      height: 20px;
+      margin-left: 5px;
+    }
     p {
       @include md {
         display: inline-block;

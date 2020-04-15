@@ -17,6 +17,9 @@
       right: 70px;
     }
   }
+  .bx-pager-item:first-of-type:last-of-type {
+    display: none
+  }
 }
 
 #myVideo {
@@ -103,6 +106,42 @@ ul.bxslider {
       }
       .cls-2 {
         fill: #DA383E;
+      }
+    }
+  }
+
+  .titles {
+    background: url(images/champ_bg.jpg) center center #DA383F;
+    background-size: cover;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 25px 15px;
+    .vert-align {
+      @include md {
+        position: absolute;
+        text-align: center;
+        top: 50%;
+        width: 100%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    }
+    h1 {
+      font-size: 50px;
+      margin: 0;
+      @include md {
+        font-size: 50px;
+      }
+      @include lg {
+        font-size: 70px;
+      }
+      text-transform: uppercase;
+      span {
+        font-weight: 600;
       }
     }
   }

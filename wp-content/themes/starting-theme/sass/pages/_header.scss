@@ -282,3 +282,57 @@ span.open {
     margin-left: 8px;
   }
 }
+
+.modal-content {
+  border: 2px solid #fff !important;
+}
+
+.modal-header {
+  border-bottom:  none !important;
+}
+
+.modal-body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  padding: 0 50px 25px 50px !important;
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 0;
+  }
+  p {
+    color: #F9423A;
+    margin-bottom: 25px
+  }
+  input {
+    padding: 15px 10px;
+  }
+  .form-group {
+    margin-bottom: 5px;
+  }
+  input::placeholder {
+    color: #283C4F;
+    font-weight: 600;
+  }
+  input[type=submit] {
+    padding: 15px 25px;
+    background: #DA383F;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 0;
+  }
+  .links {
+    margin-top: 15px;
+  }
+  a.data {
+    color: #fff;
+    width: 100%;
+    text-align: right;
+    padding: 15px 25px;
+    font-weight: 600;
+  }
+}
