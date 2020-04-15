@@ -30,9 +30,63 @@
 <link type="text/plain" rel="author" href="/humans.txt" />
 <link type="text/plain" rel="robots" href="/robots.txt" />
 <?php wp_head(); ?>
+
+
 </head>
 
 <body <?php body_class(); ?>>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="mcModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close nothanks" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <!-- Begin Mailchimp Signup Form -->
+          <div id="mc_embed_signup">
+          <form action="https://colinturkington.us13.list-manage.com/subscribe/post?u=120b6b3a3f70dbd74be585fca&amp;id=4bf8250303" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <h2>Stay on track with the latest from colinturkington.com</h2>
+              <p>Sign up below to our mailing list for all the latest news.</p>
+              <div class="mc-field-group form-group">
+                <input type="text" value="" name="FNAME" class="form-control" placeholder="First Name" id="mce-FNAME">
+              </div>
+                <div class="mc-field-group form-group">
+                <input type="text" value="" name="LNAME" class="form-control " placeholder="Last Name" id="mce-LNAME">
+              </div>
+              <div class="mc-field-group form-group">
+                <input type="email" value="" name="EMAIL" class="form-control required email" placeholder="Email" id="mce-EMAIL">
+              </div>
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_120b6b3a3f70dbd74be585fca_4bf8250303" tabindex="-1" value=""></div>
+              <div class="clear">
+                <div class="row">
+                  <div class="col-md-12 links">
+                    <input type="submit" value="Submit" name="subscribe" id="mc-embedded-subscribe" class="button nothanks">
+                    <a class="data" href="/data-policy/">View our data policy</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </form>
+          </div>
+          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+          <!--End mc_embed_signup-->
+        </div>
+      </div>
+
+    </div>
+</div>
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'starting-theme' ); ?></a>
 
