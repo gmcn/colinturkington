@@ -125,7 +125,10 @@ function starting_theme_scripts() {
 	wp_enqueue_script( 'wow-js', get_template_directory_uri() . '/js/wow.min.js', array(), '0.1', true );
 	wp_enqueue_script( 'matchHeight-js', get_template_directory_uri() . '/js/jquery.matchHeight.js', array(), '0.7.2', true );
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.7', true );
+	wp_enqueue_script( 'cookie-js', get_template_directory_uri() . '/js/jquery.cookie.min.js', array(), '1.4.1', true );
 	wp_enqueue_script( 'starting-theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -354,7 +357,13 @@ function mpe_products_sort_order($query){
 };
 
 function set_posts_per_page_for_cpt( $query ) {
-  if ( !is_admin() && $query->is_main_query() && is_post_type_archive( array('partner', 'calendar') ) ) {
+  if ( !is_admin() && $query->is_main_query() && is_post_type_archive( array('calendar') ) ) {
+    $query->set( 'posts_per_page', '-1' );
+		$query->set( 'meta_key' , 'date_from' );
+		$query->set( 'orderby', 'meta_value');
+		$query->set( 'order' , 'asc' );
+  }
+	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( array('partner') ) ) {
     $query->set( 'posts_per_page', '-1' );
   }
 }

@@ -1,0 +1,23 @@
+/* TEAM */
+
+  Web Designer: Ed Jones
+  Contact: ed [at] cornellstudios.com
+  Website: https://www.cornellstudios.com
+  From: Portadown, Northern Ireland
+
+  Web Developer: Gary McNally
+  Contact: gary [at] cornellstudios.com
+  Twitter: @garymcnally
+  Website: https://www.cornellstudios.com
+  From: Ireland/Northern Ireland
+
+  Junior Web Developer: Christina Mallon
+  Contact: christina [at] cornellstudios.com
+  Website: https://www.cornellstudios.com
+  From: Ireland/Northern Ireland
+
+/* SITE */
+
+  Last update: xx/xx/xx
+  Doctype: HTML5
+  IDE: Atom, FileZilla, Adobe XD, Wordpress, Bootstrap, SASS, matchheight.js, bxslider.js, fancybox.js

@@ -211,6 +211,11 @@
     @include md {
       padding-left: 30px;
     }
+    .wp-block-image:first-of-type {
+      @include md {
+        display: none;
+      }
+    }
     a {
       color: #fff;
       font-weight: 700;

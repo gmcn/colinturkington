@@ -25,7 +25,18 @@
       $startDate = get_field('date_from', false, false);
       $endDate = get_field('date_to');
       $startDate = new DateTime($startDate);
+      $postponed = get_field('postponed');
       ?>
+
+      <?php if ($postponed): ?>
+
+        <div class="postponed">
+          <a href="/calendar/">
+            <img src="<?php echo get_template_directory_uri() ?>/images/event-postponed.svg" alt="Event Postponed">
+          </a>
+        </div>
+
+      <?php endif; ?>
 
       <div class="vert-align <?php echo $i ?>">
 

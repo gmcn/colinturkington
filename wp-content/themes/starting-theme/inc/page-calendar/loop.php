@@ -13,13 +13,13 @@
 			$today_time = strtotime($today);
 			$expire_time = strtotime($endDate);
 			// $startDate_time = strtotime($startDate);
-
+			$postponed = get_field('postponed');
 			?>
 
 			<div class="col-sm-6 col-md-4 event wow fadeInUp">
 				<a href="<?php the_permalink(); ?>">
 					<?php //echo $endDated; ?>
-					<div class="event__wrapper__<?php if ($expire_time < $today_time) : ?>closed <?php else : ?>upcoming <?php endif; ?>">
+					<div class="event__wrapper__<?php if ($expire_time < $today_time || $postponed) : ?>closed <?php else : ?>upcoming <?php endif; ?>">
 						<div class="dots"> </div>
 	  				<div class="round">
 	  					Rounds <?php echo $rounds; ?>
@@ -34,11 +34,18 @@
 							</span>
 	  				</div>
 
-						<div class="img__wrapper">
 
-							<?php echo file_get_contents( get_the_post_thumbnail_url() ); ?>
 
-						</div>
+							<?php if ($postponed): ?>
+
+				          <img src="<?php echo get_template_directory_uri() ?>/images/race-postponed.svg" alt="Race Postponed">
+
+
+							<?php else : ?>
+								<div class="img__wrapper">
+									<?php echo file_get_contents( get_the_post_thumbnail_url() ); ?>
+								</div>
+				      <?php endif; ?>
 
 						<div class="status">
 							<p class="over">Race Over</p>

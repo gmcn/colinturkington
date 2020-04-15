@@ -33,6 +33,31 @@
     $(".modal iframe").attr("src", $(".modal iframe").attr("src"));
 });
 
+// Delayed Modal Display + Cookie On Click
+$(document).ready(function() {
+
+  // If no cookie with our chosen name (e.g. no_thanks)...
+  if ($.cookie("no_thanks") == null) {
+
+    // Show the modal, with delay func.
+    $('#mcModal').appendTo("body");
+    function show_modal(){
+      $('#mcModal').modal();
+    }
+
+    // Set delay func. time in milliseconds
+    window.setTimeout(show_modal, 3000);
+    }
+
+  // On click of specified class (e.g. 'nothanks'), trigger cookie, with expiration in year 9999
+  $(".nothanks").click(function() {
+    document.cookie = "no_thanks=true; expires=Fri, 31 Dec 9999 23:59:59 UTC";
+
+  });
+});
+
+
+
 $("#DateCountdown").TimeCircles({
     "animation": "smooth",
     "bg_width": 1.2,
