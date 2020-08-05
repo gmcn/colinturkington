@@ -6,6 +6,7 @@
           'post_type' => 'calendar',
           'order' => 'ASC',
           'posts_per_page' => 1,
+          'status' => 'publish',
           'meta_query' => array(
              array(
                 'key'		=> 'date_from',
