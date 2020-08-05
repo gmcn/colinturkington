@@ -323,7 +323,7 @@ function partner_post_type() {
 		'label'                 => __( 'Partner', 'text_domain' ),
 		'description'           => __( 'Partner information page.', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'featured' ),
+		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'revisions', 'featured', 'page-attributes' ),
 		// 'taxonomies'            => array( 'category' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -365,6 +365,8 @@ function set_posts_per_page_for_cpt( $query ) {
   }
 	if ( !is_admin() && $query->is_main_query() && is_post_type_archive( array('partner') ) ) {
     $query->set( 'posts_per_page', '-1' );
+		$query->set( 'orderby', 'menu_order');
+		$query->set( 'order' , 'asc' );
   }
 }
 add_action( 'pre_get_posts', 'set_posts_per_page_for_cpt' );
